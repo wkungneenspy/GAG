@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="sendFeedback">
+    <contexte>
+        <item name="mailList" id="item1"/>
+	<item name="otherInfos" id="item2"/>
+	<item name="counterM" id="item3"/>
+    </contexte>
+    <use type="composite" serviceName="defineCounterMeasures" order="true" location="localhost">
+        <inputParameter>
+	  <item refItem="item1" name="mailList" id="item4"/>
+	  <item refItem="item2" name="otherInfos" id="item5"/>
+	  <item refItem="item3" name="counterM" id="item6"/>
+        </inputParameter>
+        <outputParameter>
+		<item id="item7" name="nothing">Nothing</item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item7" id="item8" name="nothing"></item>
+    </provide>
+</service>

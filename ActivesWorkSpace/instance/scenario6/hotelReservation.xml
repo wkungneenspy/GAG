@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="hotelReservation">
+    <contexte>
+        <item name="reserve" id="item1">reserve</item>
+    </contexte>
+    <use type="simple" serviceName="hotelReservation" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="reserve" id="item2">reserve</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="infoReserve" id="item3">infoReserveVal</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" name="infoReserve" id="item4">infoReserveVal</item>
+    </provide>
+</service>

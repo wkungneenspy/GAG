@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="financeWorks">
+    <contexte>
+        <item name="codeEntreprise" id="item1">codeEntreprise</item>
+        <item name="listeentreprises" id="item2">listeEntreprises</item>
+    </contexte>
+    <use type="simple" serviceName="financeWorks" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="codeEntreprise" id="item3">codeEntreprise</item>
+            <item refItem="item2" name="listeentreprises" id="item4">listeEntreprises</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeFinancementE" id="item5">codeFinancementE</item>
+            <item name="detailFinancement" id="item6">detailFinancement</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" name="codeFinancementE" id="item7">codeFinancementE</item>
+        <item refItem="item6" name="detailFinancement" id="item8">detailFinancement</item>
+    </provide>
+</service>

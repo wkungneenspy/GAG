@@ -1,0 +1,12 @@
+Call defineSpecifications
+Receive defineSpecifications
+Call writeCallForTenders
+Receive writeCallForTenders
+Call selectCompanies
+Receive selectCompanies
+Call financeWorks
+Receive financeWorks
+Call followConstruction
+Receive followConstruction
+Call receiveWorks
+Receive receiveWorks

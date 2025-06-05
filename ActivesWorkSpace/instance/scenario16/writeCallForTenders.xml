@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="writeCallForTenders">
+    <contexte>
+        <item name="codeCahier" id="item1">1</item>
+        <item name="cahierCharges" id="item2">cahierChargesValueee</item>
+    </contexte>
+    <use type="simple" serviceName="writeCallForTenders" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="codeCahier" id="item3">1</item>
+            <item refItem="item2" name="cahierCharges" id="item4">cahierChargesValueee</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeAppel" id="item5">235</item>
+            <item name="appelOffres" id="item6">appelOffresValue</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" name="codeAppel" id="item7">235</item>
+        <item refItem="item6" name="appelOffres" id="item8">appelOffresValue</item>
+    </provide>
+</service>

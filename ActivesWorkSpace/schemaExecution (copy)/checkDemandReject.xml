@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="checkDemand">
+    <contexte>
+        <item name="infoMission" id="item1"/>
+    </contexte>
+    <use type="composite"  serviceName="rejectRequest" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="MOSigned" id="item3"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" id="item4" name="MOSigned"></item>
+	<item refItem="item3" id="item5" name="infoReserve"></item>
+    </provide>
+</service>

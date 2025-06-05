@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="laboratoryAnalysis">
+    <contexte>
+        <item name="sample" id="item1"/>
+	<item name="labResult" id="item2">Okay</item>
+    </contexte>
+    <use type="simple" manually="true" serviceName="laboratoryAnalysis" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="sample" id="item3"/>
+	    <item refItem="item2" name="labResult" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+		<item refItem="item4" name="labResult" id="item5"/>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item5" name="labResult" id="item6"/>
+    </provide>
+</service>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config>
+    <host>localhost</host>
+    <numberOfConnection>8</numberOfConnection>
+    <instanceNumber>20</instanceNumber>
+</config>

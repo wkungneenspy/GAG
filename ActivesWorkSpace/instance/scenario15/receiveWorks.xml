@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="receiveWorks">
+    <contexte>
+        <item name="codeProjet" id="item1">codeProjetValue</item>
+        <item name="rapportEtape" id="item2">rapportEtapeValue</item>
+    </contexte>
+    <use type="simple" serviceName="receiveWorks" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="codeProjet" id="item3">codeProjetValue</item>
+            <item refItem="item2" name="rapportEtape" id="item4">rapportEtapeValue</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeProjet" id="item5">codeProjetValue</item>
+            <item name="imageProjet" id="item6">imageProjetValue</item>
+            <item name="rapportFinal" id="item7">rapportFinalValue</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" name="codeProjet" id="item8">codeProjetValue</item>
+        <item refItem="item6" name="imageProjet" id="item9">imageProjetValue</item>
+        <item refItem="item7" name="rapportFinal" id="item10">rapportFinalValue</item>
+    </provide>
+</service>

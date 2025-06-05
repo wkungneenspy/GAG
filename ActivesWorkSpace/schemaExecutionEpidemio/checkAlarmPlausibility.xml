@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="checkAlarmPlausibility">
+    <contexte>
+        <item name="patient" id="item1"/>
+	<item name="symps" id="item2"/>
+	<item name="antecedents" id="item3"/>
+	<item name="todo" id="item4"/>
+	<item name="alarmInfos" id="item5"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="checkAlarmPlausibility" order="true" location="localhost">
+	<inputParameter>
+		<item refItem="item1" name="patient" id="item6"/>
+		<item refItem="item2" name="symps" id="item7"/>
+		<item refItem="item3" name="antecedents" id="item8"/>
+		<item refItem="item4" name="todo" id="item9"/>
+		<item refItem="item5" name="alarmInfos" id="item10"/>
+	</inputParameter>
+	<outputParameter>
+		<item name="todo" id="item11"/>
+		<item name="alarm" id="item12"/>
+        </outputParameter>
+    </use>
+    <provide>
+	    <item refItem="item11" name="todo" id="item13"/>
+	    <item refItem="item12" name="alarm" id="item14"/>
+    </provide>
+</service>

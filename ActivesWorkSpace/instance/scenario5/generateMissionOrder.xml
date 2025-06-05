@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="generateMissionOrder">
+    <contexte>
+        <item name="infoMission" id="item1">Je pars au littoral</item>
+    </contexte>
+    <use type="composite" serviceName="createMissionOrder" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2">Je pars au littoral</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="MO" id="item3">MO valeur</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="signMissionOrder" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item3" name="MO" id="item4">MO valeur</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="MOSigned" id="item5">MoSigned Valeur</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" name="MOSigned" id="item6">MoSigned Valeur</item>
+    </provide>
+</service>

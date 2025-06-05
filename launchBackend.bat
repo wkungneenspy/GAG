@@ -1,0 +1,1 @@
+start /b java -jar "C:/gag/version13/GAGImplementation/ext/GAGImplementation.jar" "C:/gag/GagconfigFile.json" > "C:/gag/version13/GAGImplementation/ext/log.txt"

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="generateMissionOrder">
+    <contexte>
+        <item name="infoMission" id="item1"/>
+    </contexte>
+    <use type="composite"  serviceName="createMissionOrder" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="MO" id="item3"/>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="signMissionOrder" order="true" location="localhost">
+        <inputParameter>
+            <item name="MO" refItem="item3" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+	    <item name="MOSigned" id="item5"/>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" id="item6" name="MOSigned"></item>
+    </provide>
+</service>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="defineCounterMeasures">
+    <contexte>
+        <item name="otherInfos" id="item1"/>
+	<item name="checkRes" id="item2"/>
+	<item name="contactTraceRes" id="item3"/>
+	<item name="counterM" id="item4"/>
+	<item name="alertInfo" id="item12"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="defineCounterMeasures" order="true" location="localhost">
+        <inputParameter>
+	  <item refItem="item1" name="otherInfos" id="item5"/>
+	  <item refItem="item2" name="checkRes" id="item6"/>
+	  <item refItem="item3" name="contactTraceRes" id="item7"/>
+	  <item refItem="item4" name="counterM" id="item8"/>
+	  <item refItem="item12" name="alertInfo" id="item9"/>
+        </inputParameter>
+        <outputParameter>
+		<item refItem="item8" name="counterM" id="item10"/>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item10" id="item11" name="counterM"></item>
+    </provide>
+</service>

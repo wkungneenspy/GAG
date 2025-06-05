@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="createMissionOrder">
+    <contexte>
+        <item name="infoMission" id="item1">Je pars au littoral</item>
+    </contexte>
+    <use type="simple" serviceName="createMissionOrder" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2">Je pars au littoral</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="MO" id="item3">MO valeur</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" name="MO" id="item4">MO valeur</item>
+    </provide>
+</service>

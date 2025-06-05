@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="creationAgent">
+    <contexte>
+        <item name="infoAgent" id="item1"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="creationAgent" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoAgent" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+	  <item name="agent" id="item3"/>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item3" name="agent" id="item4"/>
+    </provide>
+</service>

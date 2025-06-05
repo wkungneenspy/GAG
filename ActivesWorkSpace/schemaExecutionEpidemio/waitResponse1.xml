@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="waitResponse">
+    <contexte>
+        <item name="labResult" id="item1"/>
+	<item name="sample" id="item2"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="waitResponse" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="labResult" id="item3"/>
+	    <item refItem="item2" name="sample" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="labResult" id="item5"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" id="item6" name="labResult"></item>
+    </provide>
+</service>

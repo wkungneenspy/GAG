@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!--  Appender generique, pour tous les log-->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %C{5} (%F:%L) - %m %n"/>
+		</layout>
+	</appender>
+	 
+	<!--  appender pour les log de debug a warn, Fichier Fashion-->
+	<appender name="FileLog" class="org.apache.log4j.FileAppender">
+		<param name="file" value="${jboss.server.log.dir}/RythmLog.log"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %C{5} (%F:%L) - %m %n"/>
+		</layout>
+		
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="DEBUG"/>
+			<param name="levelMax" value="WARN"/>
+		</filter>
+	</appender>
+	
+	
+	<!--  appender pour les log de ERROR ET FATTAL, XML Fashion-->
+	<appender name="FileXML" class="org.apache.log4j.FileAppender">
+		<param name="file" value="${jboss.server.log.dir}/RythmLogXML.xml"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.xml.XMLLayout"/>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="ERROR"/>
+			<param name="levelMax" value="FATAL"/>
+		</filter>
+	</appender>
+
+	<logger name="debug">
+		<level value="DEBUG"/>
+		<appender-ref ref="console"/>
+	</logger>
+
+	<root>
+		<level value="INFO"/>
+		<appender-ref ref="console"/>
+		<appender-ref ref="FileXML"/>
+		<appender-ref ref="FileLog"/>
+	</root>
+
+</log4j:configuration>

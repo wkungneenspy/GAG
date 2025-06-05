@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="manageAlarm">
+    <contexte>
+        <item name="patient" id="item1"/>
+	<item name="symps" id="item2"/>
+	<item name="antecedents" id="item3"/>
+	<item name="labResult" id="item4"/>
+	<item name="checkRes" id="item5"/>
+    </contexte>
+    <use type="composite" serviceName="checkAlarmPlausibility" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item6"/>
+	    <item refItem="item2" name="symps" id="item7"/>
+	    <item refItem="item3" name="antecedents" id="item8"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="todo" id="item9"></item>
+            <item name="alarm" id="item10"></item>
+        </outputParameter>
+    </use>
+	<use type="composite"  serviceName="declareAlert" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item11"/>
+	    <item refItem="item2" name="symps" id="item12"/>
+	    <item refItem="item3" name="antecedents" id="item13"/>
+	    <item refItem="item5" name="checkRes" id="item14"/>
+	    <item refItem="item4" name="labResult" id="item15"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="alert" id="item16"></item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item9" name="todo" id="item17"/>
+	<item refItem="item10" name="alarm" id="item18"/>
+	<item refItem="item16" name="alert" id="item19"/>
+    </provide>
+</service>

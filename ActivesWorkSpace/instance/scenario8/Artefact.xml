@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="buildSchoolAS">
+    <contexte>
+        <item name="codeBesoin" id="item1">aaaaaa</item>
+        <item name="descriptionBesoin" id="item2">bbbbbb</item>
+    </contexte>
+    <service type="simple" name="defineSpecifications">
+        <contexte>
+            <item name="codeBesoin" id="item1">aaaaaa</item>
+            <item name="descriptionBesoin" id="item2">bbbbbb</item>
+        </contexte>
+        <service type="simple" name="defineSpecifications">
+            <contexte>
+                <item name="codeBesoin" id="item1">aaaaaa</item>
+                <item name="descriptionBesoin" id="item2">bbbbbb</item>
+            </contexte>
+            <provide>
+                <item refItem="item5" name="codeCahier" id="item7">cahierDesCharges</item>
+                <item refItem="item6" name="cahierCharges" id="item8">cahierDesCharges</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item5" name="codeCahier" id="item7">cahierDesCharges</item>
+            <item refItem="item6" name="cahierCharges" id="item8">cahierDesCharges</item>
+        </provide>
+    </service>
+    <service type="simple" name="writeCallForTenders">
+        <contexte>
+            <item name="codeCahier" id="item1">cahierDesCharges</item>
+            <item name="cahierCharges" id="item2">cahierDesCharges</item>
+        </contexte>
+        <service type="simple" name="writeCallForTenders">
+            <contexte>
+                <item name="codeCahier" id="item1">cahierDesCharges</item>
+                <item name="cahierCharges" id="item2">cahierDesCharges</item>
+            </contexte>
+            <provide>
+                <item refItem="item5" name="codeAppel" id="item7">appelOffress</item>
+                <item refItem="item6" name="appelOffres" id="item8">appelOffres</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item5" name="codeAppel" id="item7">appelOffress</item>
+            <item refItem="item6" name="appelOffres" id="item8">appelOffres</item>
+        </provide>
+    </service>
+    <use type="composite" serviceName="selectCompanies" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item9" name="codeAppel" id="item11"></item>
+            <item refItem="item10" name="appelOffres" id="item12"></item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeEntreprise" id="item13"></item>
+            <item name="listeentreprises" id="item14"></item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="financeWorks" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item13" name="codeEntreprise" id="item15"></item>
+            <item refItem="item14" name="listeentreprises" id="item16"></item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeFinancementE" id="item17"></item>
+            <item name="detailFinancement" id="item18"></item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="followConstruction" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item13" name="codeEntreprise" id="item19"></item>
+            <item refItem="item17" name="codeFinancementE" id="item20"></item>
+            <item refItem="item14" name="listeentreprises" id="item21"></item>
+            <item refItem="item18" name="detailFinancement" id="item22"></item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeProjet" id="item23"></item>
+            <item name="rapportEtape" id="item24"></item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="receiveWorks" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item23" name="codeProjet" id="item25"></item>
+            <item refItem="item24" name="rapportEtape" id="item26"></item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeProjet" id="item25"></item>
+            <item name="imageProjet" id="item26"></item>
+            <item name="rapportFinal" id="item27"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item25" name="codeProjet" id="item28"></item>
+        <item refItem="item26" name="imageProjet" id="item29"></item>
+        <item refItem="item27" name="rapportFinal" id="item30"></item>
+    </provide>
+</service>

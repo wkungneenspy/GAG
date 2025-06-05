@@ -1,0 +1,44 @@
+Système de demande d'Ordre de Mission(OM) contient un ensemble de services répartir entre un ensemble d'acteurs.
+Les différents acteurs sont par exemple l'agent qui demande une mission, son supérieur hierarchique (SH), le Service
+des Affaires Financières (SAB), Cellule d'Investissement d'Avenir(CIA) ou même une Agence de Reservation de Voyage
+Nous présentons par la suite chacun de ces acteurs avec l'ensemble de ces services qu'il peut avoir ou appeler initialement.
+Dans le but de présenter l'essentiel, nous allons fédérer toutes les informations concernant une demande de mission dans la
+variable infoMission, l'Ordre de Mission généré dans la variable OM, l'Ordre de Mission signé par la CIA dans la variable OMScia,
+l'Ordre de Mission signe par la CIA et l'agent dans la variable OMSciaagent, les informations pour la réservation d'un voyage dans 
+la variable reserve (dateArrivee, dateDepart, paysArrivee et paysDepart) et les informations retournées par la réservation d'un voyage
+infoReserve(compAerienne, numVol, numSiege, nomHotel, numChambre et numTaxi).
+ 
+
+######################################Services de l'agent demandant une mise en Mission################################################
+S1 == demandeOM(infoMission)<OM>  :: demandeOM(infoMission)<OM> --> validerDemandeOM(infoMission)<OM>[SH]
+S2 == signerOMAgent(OMScia)<OMSciaagent> :: signerOMAgent(OMScia)<OMSciaagent> --> signatureAgent(OMScia)<OMSciaagent> organiserLogistique(OMSciaagent)<>[SAB]
+S3 == signatureAgent(OMScia)<OMSciaagent> :: signatureAgent(OMScia)<OMSciaagent> -->
+S4 == creationAgent(infoAgent)<agent> :: creationAgent(infoAgent)<agent> -->
+
+######################################Service du Supérieur Hierarchique (SH)################################################
+S5 == validerDemandeOM(infoMission)<OM> :: validerDemandeOM(infoMission)<OM> --> demandeValide(infoMission)<OM>
+S6 == validerDemandeOM(infoMission)<OM> :: validerDemandeOM(infoMission)<OM> --> demandeRejete(infoMission)< > //OM est NULL
+S7 == demandeValide(infoMission)<OM> :: demandeValide(infoMission)<OM> --> verifAgent(infoMission)<agent>[SAB] appreciationCIA(infoMission)<OM>[CIA]
+S8 == demandeRejete(infoMission)<OM> :: demandeRejete(infoMission)<OM> -->
+
+######################################Services de la Cellule d'Investissement d'Avenir (CIA)################################################
+S9 == appreciationCIA(infoMission)<OM> :: appreciationCIA(infoMission)<OM> --> bonneAppreciationCIA(infoMission)<OM>
+S10 == appreciationCIA(infoMission)<OM> :: appreciationCIA(infoMission)<OM> --> mauvaiseAppreciationCIA(infoMission)< > //OM à NULL
+S11 == bonneAppreciationCIA(infoMission)<OM> :: bonneAppreciationCIA(infoMission)<OM> --> creationOM(infoMission)<OM>[SAB]
+S12 == mauvaiseAppreciationCIA(infoMission)<OM> :: mauvaiseAppreciationCIA(infoMission)<OM> --> 
+S13 == signerOMCIA(OM)<OMScia> :: signerOMCIA(OM)<OMScia> --> signatureCIA(OM)<OMScia> signerOMAgent(OMScia)<OMSciaagent>[agent]
+S14 == signatureCIA(OM)<OMScia> :: signatureCIA(OM)<OMScia> -->
+
+
+######################################Services du Service des Affaires Budgetaire (SAB)################################################
+S15 == verifAgent(infoMission)<agent> :: verifAgent(infoMission)<agent> --> agentValide(infoMission)<agent>
+S16 == verifAgent(infoMission)<agent> :: verifAgent(infoMission)<agent> --> agentInvalide(infoMission)<agent> 
+S17 == agentValide(infoMission)<agent> :: agentValide(infoMission)<agent> -->
+S18 == agentInvalide(infoMission)<agent> :: agentInvalide(infoMission)<agent> --> creationAgent(infoMission)<agent>[agent]
+S19 == creationOM(infoMission)<OM> :: creationOM(infoMission)<OM> --> creationOMEffective(infoMission)<OM> signerOMCIA(OM)<OMScia>[cia]
+S20 == creationOMEffective(infoMission)<OM> ::  creationOMEffective(infoMission)<OM> -->
+S21 == organiserLogistique(OMSciaagent,reserve)<infoReserve> :: organiserLogistique(OMSciaagent,reserve)<infoReserve> --> reservationVoyage(reserve)<infoReserve>
+S22 == reservationVoyage(reserve)<infoReserve> :: reservationVoyage(reserve)<infoReserve> --> reservationVol(reserve)<compAerienne,numVol, numSiege>
+																						      reservationHotel(reserve)<numChambre,nomHotel>
+																							  reservationTaxi(reserve)<numTaxi>
+

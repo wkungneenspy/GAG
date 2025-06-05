@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="buildSchoolAS">
+    <contexte>
+        <item name="codeBesoin" id="item1">azert</item>
+        <item name="descriptionBesoin" id="item2">aqszde</item>
+    </contexte>
+    <use type="composite" serviceName="defineSpecifications" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item1" name="codeBesoin" id="item3">azert</item>
+            <item refItem="item2" name="descriptionBesoin" id="item4">aqszde</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeCahier" id="item5">codeCahier</item>
+            <item name="cahierCharges" id="item6">cahierCharges</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="writeCallForTenders" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item5" name="codeCahier" id="item7">codeCahier</item>
+            <item refItem="item6" name="cahierCharges" id="item8">cahierCharges</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeAppel" id="item9">codeCahier</item>
+            <item name="appelOffres" id="item10">cahierCharges</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="selectCompanies" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item9" name="codeAppel" id="item11">codeCahier</item>
+            <item refItem="item10" name="appelOffres" id="item12">cahierCharges</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeEntreprise" id="item13">ppppp</item>
+            <item name="listeentreprises" id="item14">iiiiii</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="financeWorks" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item13" name="codeEntreprise" id="item15">ppppp</item>
+            <item refItem="item14" name="listeentreprises" id="item16">iiiiii</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeFinancementE" id="item17">codeFFF</item>
+            <item name="detailFinancement" id="item18">detailFinancementtt</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="followConstruction" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item13" name="codeEntreprise" id="item19">ppppp</item>
+            <item refItem="item17" name="codeFinancementE" id="item20">codeFFF</item>
+            <item refItem="item14" name="listeentreprises" id="item21">iiiiii</item>
+            <item refItem="item18" name="detailFinancement" id="item22">detailFinancementtt</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeProjet" id="item23">receiveWorks</item>
+            <item name="rapportEtape" id="item24">azert</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="receiveWorks" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item23" name="codeProjet" id="item25">receiveWorks</item>
+            <item refItem="item24" name="rapportEtape" id="item26">azert</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeProjet" id="item25">rapportEtapre</item>
+            <item name="imageProjet" id="item26">receiveWorks</item>
+            <item name="rapportFinal" id="item27">sqsd sqdqs</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item25" name="codeProjet" id="item28">receiveWorks</item>
+        <item refItem="item26" name="imageProjet" id="item29">azert</item>
+        <item refItem="item27" name="rapportFinal" id="item30">sqsd sqdqs</item>
+    </provide>
+</service>

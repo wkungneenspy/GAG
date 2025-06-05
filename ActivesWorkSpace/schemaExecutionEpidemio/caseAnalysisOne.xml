@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="caseAnalysisOne">
+    <contexte>
+        <item name="patient" id="item1"/>
+	<item name="symps" id="item2"/>
+	<item name="antecedents" id="item3"/>
+	<item name="labResult" id="item4"/>
+    </contexte>
+    <use type="composite"  serviceName="checkAlarmPlausibility" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item5"/>
+	    <item refItem="item2" name="symps" id="item6"/>
+	    <item refItem="item3" name="antecedents" id="item7"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="todo" id="item8"></item>
+	    <item name="alarm" id="item9"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item8" id="item10" name="todo"></item>
+	<item refItem="item9" id="item11" name="alarm"></item>
+    </provide>
+</service>

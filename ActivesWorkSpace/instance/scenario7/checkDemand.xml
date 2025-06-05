@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="checkDemand">
+    <contexte>
+        <item name="infoMission" id="item1">infoMissionValue25Dec</item>
+    </contexte>
+    <use type="composite" serviceName="generateMissionOrder" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2">infoMissionValue25Dec</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="MOSigned" id="item3">MOSigned</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="preparingLogistic" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item name="reserve" id="item4">reserveeeeee</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="infoReserve" id="item5">infoReserve</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" name="MOSigned" id="item6">MOSigned</item>
+        <item refItem="item5" name="infoReserve" id="item7">infoReserve</item>
+    </provide>
+</service>

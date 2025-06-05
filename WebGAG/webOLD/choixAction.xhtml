@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <f:view locale="en">
+        <ui:composition template="WEB-INF/new_templates/template.xhtml">
+            <ui:define name="title"><h:outputText value="form.pageaccueil"/></ui:define>
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:growl id="messages" life="2000"/>
+                    <p:poll  interval="10"  listener="#{treeBasicView.init}" update="evenements" />
+                    <h1 style="margin-top:-22px"><h:outputText value="Vous etes le Role: #{treeBasicView.role}" /></h1>
+
+                    <h3 style="margin-top:10px">Schema d'execution (Services definis a la volee)</h3>
+                    <p:scrollPanel  mode="native" style="width: auto;height:200px">
+
+                        <p:dataTable id="cars" var="car" value="#{dataListView.services1}" rowKey="#{car.name}"
+                                     selection="#{dataListView.selectedService}" selectionMode="single">
+                            <p:column headerText="Liste des service disponible">
+                                <h:outputText value="#{car.name}" />
+                            </p:column>
+                        </p:dataTable>
+
+                        <p:contextMenu for="cars" style="font-size: 10px">
+                            <p:menuitem value="Select" update="carDetail" actionListener="#{dataListView.chooseServicee()}"
+                                        oncomplete="PF('carDialog').show()" icon="ui-icon-search" style="font-size: 10px"/>
+                            <p:menuitem value="Show Info" update="cars" icon="ui-icon-close" style="font-size: 10px" actionListener="#{treeBasicView.chooseService()}"/>
+                        </p:contextMenu>
+
+                        <p:dialog  header="Define input attribute" widgetVar="carDialog" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                            <p:outputPanel id="carDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" 
+                                              rendered="#{not empty dataListView.selectedService.contexte.item and not dataListView.isManyService and not dataListView.isNotSimple}" columnClasses="label,value">
+                                    <ui:repeat value="#{dataListView.selectedService.contexte.item}" var="item">
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="#{item.name}" />
+                                            <h:inputText value="#{item.content}" />
+                                        </h:panelGrid>
+                                    </ui:repeat>
+                                </p:panelGrid>
+
+                                <p:outputPanel  rendered="#{dataListView.isManyService and not dataListView.isNotSimple}" >
+                                    <ui:repeat value="#{dataListView.availableServices}" var="service">
+                                        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                            <p:commandLink update=":form:carDetail1"  action="#{dataListView.generateForm}" 
+                                                           oncomplete="PF('carDialog1').show(); PF('carDialog').hide();">
+                                                <f:setPropertyActionListener value="#{service}"  target="#{dataListView.selectedAvailableService}" />
+
+                                                <p:outputPanel>
+                                                    <h:panelGrid  columns="2" cellpadding="5">
+                                                        <h:outputText value="#{service.name}" style="font-size: 10px; font-weight: bold"/>
+                                                    </h:panelGrid>
+                                                </p:outputPanel>
+                                            </p:commandLink>
+                                        </h:panelGrid>
+                                        <hr />
+                                    </ui:repeat>
+                                </p:outputPanel>
+                                
+                                <p:outputPanel  rendered="#{dataListView.isNotSimple}" >
+                                    <p:outputLabel value="Can not be instantiated: Simple Service"/>
+                                </p:outputPanel>
+                                
+                                <p:commandButton update=":form:cars" value="define" ajax="true" rendered="#{not dataListView.isManyService and not dataListView.isNotSimple}"
+                                             actionListener="#{dataListView.defineInputValeur}"
+                                             oncomplete="PF('carDialog').hide()"/>
+                            </p:outputPanel>
+                        </p:dialog>
+                        
+                        <p:dialog  header="Please confirm your choose" widgetVar="carDialog1" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                            <p:outputPanel id="carDetail1" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty dataListView.selectedAvailableService.contexte.item}" columnClasses="label,value">
+                                    <ui:repeat value="#{dataListView.selectedAvailableService.contexte.item}" var="item">
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="#{item.name}" />
+                                            <h:inputText value="#{item.content}" />
+                                        </h:panelGrid>
+                                    </ui:repeat>
+                                </p:panelGrid>
+                            </p:outputPanel>
+                            <p:commandButton value="define" ajax="true"  
+                                             actionListener="#{dataListView.defineInputValeurMoreService()}" 
+                                             oncomplete="PF('carDialog1').hide()"/>
+                        </p:dialog>
+                        
+                    </p:scrollPanel> <br/>
+                    <h:panelGrid columns="2">
+                        <p:commandButton update="form" value="Launch" action="#{dataListView.definirModeLancement()}" oncomplete="PF('defineInfoService').hide()"/>
+
+                        <p:commandButton ajax="false" value="Stop" id="encours" action="#{userBean.navConnexion()}"/>
+                    </h:panelGrid>
+                    <p:scrollPanel mode="native" style="width: auto;height:50px;margin-top:10px">
+                        <h:panelGrid>   
+
+                            <ui:repeat value="#{treeBasicView.scenarioFolder}" var="scenario">
+
+                                <p:commandButton value="#{scenario}"  actionListener="#{treeBasicView.obtainSelectedScenario(scenario)}"
+                                                 update=":form:scenarioDialog" oncomplete="PF('scenarioDialog').show()" >
+                                    <f:setPropertyActionListener  value="#{scenario}" target="#{treeBasicView.selectedScenario}" />
+                                </p:commandButton>
+
+                            </ui:repeat>
+
+                        </h:panelGrid>
+                    </p:scrollPanel><br/>
+
+                    <p:scrollPanel  mode="native" style="width: auto;height:400px">
+                        <p:contextMenu for="evenements" style="width: 200px; font-size: 10px">
+                            <p:menuitem value="details" actionListener="#{treeBasicView.displaySelectedSingle}" 
+                                        oncomplete="PF('serviceDialog').show()" update=":form:detailss"  icon="ui-icon-disk"/>
+                        </p:contextMenu>
+
+                        <p:tree id="evenements" selectionMode="single" selection="#{treeBasicView.selectedNode}" value="#{treeBasicView.root}" var="node" dynamic="true" orientation="horizontal">
+
+                            <p:treeNode>
+
+                                <h:outputText value="#{node.name}" style="#{node.isResolved ? 'color: black' : 'color: red'}"/>
+
+                            </p:treeNode>
+                        </p:tree>
+
+                    </p:scrollPanel>
+
+                    <p:dialog id="detailss" header="Service Infos" widgetVar="serviceDialog" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                        <p:panel rendered="#{treeBasicView.isThatbackendWorks()}">
+                            <h:outputText value="Backend is running" style="font-size: 11px; font-weight: bold"/>
+                        </p:panel>
+                        <p:panel rendered="#{treeBasicView.defineInput and not treeBasicView.isThatbackendWorks()}">
+                            <h:panelGrid  columns="2" cellpadding="5">
+                                <h:outputText value="param: #{treeBasicView.paramAdefenir}" style="font-size: 11px; font-weight: bold"/>
+                                <h:inputText value="#{treeBasicView.valeurAdefinir}" style="font-size: 11px; font-weight: bold"/>
+                            </h:panelGrid>
+                            <p:commandButton value="define" ajax="true"  actionListener="#{treeBasicView.defineInputValeur}" update="detailss"/>
+                        </p:panel>
+                        <p:panel rendered="#{not treeBasicView.defineInput and not treeBasicView.isThatbackendWorks()}">
+                            <p:outputLabel value="#{treeBasicView.isClosed ? 'Closed Node' :'Opened Node' }"/><br/><br/>
+                            
+                            <p:outputLabel value="This service is not in progress. Please choose: #{treeBasicView.serviceAchoisir}  " rendered="#{not treeBasicView.isCorrectService and treeBasicView.isUse}">
+                                
+                            </p:outputLabel> 
+                            
+                            <p:panel id="horizontal" header="Service(s) disponible(s) ou choisi pour ce Noeud"  
+                                     toggleable="true" toggleOrientation="horizontal"
+                                     rendered="#{treeBasicView.isCorrectService or not treeBasicView.isUse}">
+                                <p:scrollPanel mode="native" style="width: 350px;height:150px" >
+                                    <ui:repeat value="#{treeBasicView.availableServices}" var="service">
+                                        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                            <p:commandLink update=":form:defineInfoService1"  action="#{treeBasicView.generateForm}"  oncomplete="PF('defineInfoService').show(); PF('serviceDialog').hide();">
+                                                <f:setPropertyActionListener value="#{service}"  target="#{treeBasicView.selectedAvailableService}" />
+
+                                                <p:outputPanel>
+                                                    <h:panelGrid  columns="2" cellpadding="5">
+                                                        <h:outputText value="#{service.name}" style="font-size: 10px; font-weight: bold"/>
+                                                    </h:panelGrid>
+                                                </p:outputPanel>
+                                            </p:commandLink>
+                                        </h:panelGrid>
+                                        <hr />
+                                    </ui:repeat>
+                                </p:scrollPanel>
+                            </p:panel>
+
+
+                            <p:outputLabel value="En entree" 
+                                           rendered="#{not treeBasicView.isInputDefine and not treeBasicView.isUse}"/>
+                            <p:scrollPanel mode="native" style="width: auto;height:100px" 
+                                           rendered="#{not treeBasicView.isInputDefine and not treeBasicView.isUse}">
+                                <ui:repeat value="#{treeBasicView.inputService}" var="item">
+                                    <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                        <p:commandLink update=":form:carDetail"  oncomplete="PF('carDialog').show();">
+                                            <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedInputService}" />
+                                        </p:commandLink>
+
+                                        <p:outputPanel>
+                                            <h:panelGrid  columns="2" cellpadding="5">
+                                                <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                                <h:outputText value="valeur: #{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                            </h:panelGrid>
+                                        </p:outputPanel>
+                                    </h:panelGrid>
+                                    <hr />
+                                </ui:repeat>
+                            </p:scrollPanel>
+
+
+                            <p:outputLabel value="En entree" 
+                                           rendered="#{treeBasicView.isInputDefine and not treeBasicView.isUse}"/>
+                            <p:scrollPanel mode="native" style="width: auto;height:100px" 
+                                           rendered="#{treeBasicView.isInputDefine and not treeBasicView.isUse}">
+                                <ui:repeat value="#{treeBasicView.inputService}" var="item">
+                                    <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                        <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                            <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedInputService}" />
+                                        </p:commandLink>
+
+                                        <p:outputPanel>
+                                            <h:panelGrid  columns="2" cellpadding="5">
+                                                <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                                <h:inputText value="#{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                            </h:panelGrid>
+                                        </p:outputPanel>
+                                    </h:panelGrid>
+                                    <hr />
+                                </ui:repeat>
+                            </p:scrollPanel>
+
+
+
+                            <p:outputLabel value="En sortie" 
+                                           rendered="#{not treeBasicView.isManual and not treeBasicView.isUse}"/>
+                            <p:scrollPanel mode="native" style="width: auto;height:100px"  
+                                           rendered="#{not treeBasicView.isManual and not treeBasicView.isUse}">
+                                <ui:repeat value="#{treeBasicView.outputService}" var="item">
+                                    <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                        <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                            <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedOutputService}" />
+                                        </p:commandLink>
+
+                                        <p:outputPanel>
+                                            <h:panelGrid columns="2" cellpadding="5">
+                                                <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                                <h:outputText value="valeur: #{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                            </h:panelGrid>
+                                        </p:outputPanel>
+                                    </h:panelGrid>
+                                    <hr />
+                                </ui:repeat>
+                            </p:scrollPanel>
+
+                            <p:outputLabel value="En sortie" 
+                                           rendered="#{treeBasicView.isManual and not treeBasicView.isUse}"/>
+                            <p:scrollPanel mode="native" style="width: auto;height:100px"  
+                                           rendered="#{treeBasicView.isManual and not treeBasicView.isUse}">
+                                <ui:repeat value="#{treeBasicView.outputService}" var="item">
+                                    <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                        <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                            <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedOutputService}" />
+                                        </p:commandLink>
+
+                                        <p:outputPanel>
+                                            <h:panelGrid columns="2" cellpadding="5">
+                                                <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                                <h:inputText value="#{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                            </h:panelGrid>
+                                        </p:outputPanel>
+                                    </h:panelGrid>
+                                    <hr />
+                                </ui:repeat>
+                            </p:scrollPanel>
+
+                            <p:commandButton oncomplete="PF('serviceDialog').hide()" value="OKAY" 
+                                             action="#{treeBasicView.quelValeur()}"/>
+                        </p:panel>
+                    </p:dialog>
+
+                    <p:dialog id="serviceChoose" header="Which Service Choose?" widgetVar="serviceChooseDialog" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                        <p:outputLabel value="#{treeBasicView.isClosed ? 'Closed Node' :'Opened Node' }"/><br/><br/>
+
+                        <p:outputLabel value="Services disponible pour ce Noeud"/>
+                        <p:scrollPanel mode="native" style="width: auto;height:100px" >
+                            <ui:repeat value="#{treeBasicView.availableServices}" var="service">
+                                <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                    <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                        <f:setPropertyActionListener value="#{service}" target="#{treeBasicView.selectedAvailableService}" />
+                                    </p:commandLink>
+
+                                    <p:outputPanel>
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="#{service.name}" style="font-size: 11px; font-weight: bold"/>
+                                        </h:panelGrid>
+                                    </p:outputPanel>
+                                </h:panelGrid>
+                                <hr />
+                            </ui:repeat>
+                        </p:scrollPanel><br/><br/>
+                    </p:dialog>
+
+                    <p:dialog id="defineInfoService1" header="You have choseen" widgetVar="defineInfoService" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                        <p:outputLabel value="Service Name : #{treeBasicView.serviceName}" rendered="#{treeBasicView.isUse}" style="font-size: 13px;font-weight: bold"/><br/><br/>
+                        <p:outputLabel value="En entree" rendered="#{treeBasicView.isUse}"/>
+
+                        <p:scrollPanel  mode="native" style="width: auto;height:100px" 
+                                        rendered="#{not treeBasicView.isInputDefine}">
+                            <ui:repeat value="#{treeBasicView.contexteService}" var="item">
+                                <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                    <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                        <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedServ}" />
+                                    </p:commandLink>
+
+                                    <p:outputPanel>
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                            <h:outputText value="value: #{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                        </h:panelGrid>
+                                    </p:outputPanel>
+                                </h:panelGrid>
+                                <hr />
+                            </ui:repeat>
+                        </p:scrollPanel><br/><br/>
+
+                        <p:scrollPanel  mode="native" style="width: auto;height:100px" 
+                                        rendered="#{treeBasicView.isInputDefine}">
+                            <ui:repeat value="#{treeBasicView.contexteService}" var="item">
+                                <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                    <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                        <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedServ}" />
+                                    </p:commandLink>
+
+                                    <p:outputPanel>
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                            <h:inputText value="#{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                        </h:panelGrid>
+                                    </p:outputPanel>
+                                </h:panelGrid>
+                                <hr />
+                            </ui:repeat>
+                        </p:scrollPanel><br/><br/>
+
+                        <p:scrollPanel mode="native" style="width: auto;height:100px" 
+                                       rendered="#{not treeBasicView.isOutputDefine}">
+                            <ui:repeat value="#{treeBasicView.provideService}" var="item">
+                                <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                    <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                        <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedServ}" />
+                                    </p:commandLink>
+
+                                    <p:outputPanel>
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                            <h:outputText value="#{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                        </h:panelGrid>
+                                    </p:outputPanel>
+                                </h:panelGrid>
+                                <hr />
+                            </ui:repeat>
+                        </p:scrollPanel><br/><br/>
+
+                        <p:scrollPanel mode="native" style="width: auto;height:100px" 
+                                       rendered="#{treeBasicView.isOutputDefine}">
+                            <ui:repeat value="#{treeBasicView.provideService}" var="item">
+                                <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                                    <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+                                        <f:setPropertyActionListener value="#{item}" target="#{treeBasicView.selectedServ}" />
+                                    </p:commandLink>
+
+                                    <p:outputPanel>
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                            <h:inputText value="#{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                        </h:panelGrid>
+                                    </p:outputPanel>
+                                </h:panelGrid>
+                                <hr />
+                            </ui:repeat>
+                        </p:scrollPanel><br/><br/>
+                        <p:commandButton rendered="#{treeBasicView.isUse}" value="define" 
+                                         action="#{treeBasicView.defineValeur()}" 
+                                         oncomplete="PF('defineInfoService').hide()"/>
+                    </p:dialog>
+                    <p:dialog id="scenarioDialog" header="Show Artefact" widgetVar="scenarioDialog" 
+                              modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                        <p:outputLabel value="#{treeBasicView.selectedScenario}"/><br/><br/>
+                        <p:contextMenu for="scenarioTree" style="width: 200px; font-size: 10px">
+                            <p:menuitem value="details" actionListener="#{treeBasicView.displaySelectedNodeScenario}" 
+                                        oncomplete="PF('scenarioDetailDialog').show()" update=":form:scenarioDetailDialog"  
+                                        icon="ui-icon-disk"/>
+                        </p:contextMenu>
+                        <p:tree id="scenarioTree" selectionMode="single" selection="#{treeBasicView.selectedNodeScenario}" 
+                                value="#{treeBasicView.rootScenario}" var="node" dynamic="true" orientation="horizontal">
+
+                            <p:treeNode>
+
+                                <h:outputText value="#{node.name}" style="#{node.isResolved ? 'color: black' : 'color: red'}"/>
+
+                            </p:treeNode>
+                        </p:tree>
+                    </p:dialog>
+                    <p:dialog id="scenarioDetailDialog" header="Show Detail" widgetVar="scenarioDetailDialog" 
+                              modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                        
+                        <p:outputLabel value="Service Name : #{treeBasicView.nameScenario}"/><br/><br/>
+                        
+                        <p:outputLabel value="Input"/><br/>
+                        <p:scrollPanel  mode="native" style="width: auto;height:100px">
+                            <ui:repeat value="#{treeBasicView.inputScenario}" var="item">
+                                    <p:outputPanel>
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                            <h:outputText value="value: #{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                        </h:panelGrid>
+                                    </p:outputPanel>
+                                <hr />
+                            </ui:repeat>
+                        </p:scrollPanel><br/>
+                        
+                        <p:outputLabel value="Output"/><br/>
+                        <p:scrollPanel  mode="native" style="width: auto;height:100px">
+                            <ui:repeat value="#{treeBasicView.outputScenario}" var="item">
+                                    <p:outputPanel>
+                                        <h:panelGrid  columns="2" cellpadding="5">
+                                            <h:outputText value="param: #{item.name}" style="font-size: 11px; font-weight: bold"/>
+                                            <h:outputText value="value: #{item.content}" style="font-size: 11px; font-weight: bold"/>
+                                        </h:panelGrid>
+                                    </p:outputPanel>
+                                <hr />
+                            </ui:repeat>
+                        </p:scrollPanel><br/>
+                    </p:dialog>
+                </h:form>
+            </ui:define>
+
+
+        </ui:composition>
+    </f:view>
+</html>

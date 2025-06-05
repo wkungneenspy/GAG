@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="reservationTaxi">
+    <contexte>
+        <item id="item1" name="dateDepart"/>
+        <item id="item2" name="dateRetour"/>
+        <item id="item3" name="paysArrive"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="reservationTaxi" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="dateDepart" id="item4"/>
+	    <item refItem="item2" name="dateRetour" id="item5"/>
+	    <item refItem="item3" name="paysArrive" id="item6"/>
+        </inputParameter>
+        <outputParameter>
+	    <item name="numeroTaxi" id="item7"></item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item7" name="numeroTaxi" id="item8"/>
+    </provide>
+</service>

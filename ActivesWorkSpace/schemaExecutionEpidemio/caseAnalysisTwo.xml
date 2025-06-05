@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="caseAnalysisTwo">
+    <contexte>
+        <item name="patient" id="item1"/>
+	<item name="symps" id="item2"/>
+	<item name="antecedents" id="item3"/>
+	<item name="checkRes" id="item4"/>
+	<item name="labResult" id="item5"/>
+	<item name="contactTraceRes" id="item6"/>
+    </contexte>
+    <use type="composite"  serviceName="manageAlarm" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item7"/>
+	    <item refItem="item2" name="symps" id="item8"/>
+	    <item refItem="item3" name="antecedents" id="item9"/>
+	    <item refItem="item5" name="labResult" id="item10"/>
+	    <item refItem="item4" name="checkRes" id="item11"/>
+        </inputParameter>
+        <outputParameter>
+	    <item name="alert" id="item14"></item>
+        </outputParameter>
+    </use>
+	<use type="composite"  serviceName="manageAlert" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item14" name="alert" id="item15"/>
+	    <item refItem="item1" name="patient" id="item16"/>
+	    <item refItem="item2" name="symps" id="item17"/>
+	    <item refItem="item4" name="checkRes" id="item18"/>
+	    <item refItem="item6" name="contactTraceRes" id="item19"/>
+        </inputParameter>
+        <outputParameter>
+		<item name="nothing" id="item20">Nothing</item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item name="nothing" id="item20" refItem="item21"></item>
+    </provide>
+</service>

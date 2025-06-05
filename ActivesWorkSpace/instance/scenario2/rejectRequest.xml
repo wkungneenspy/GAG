@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="rejectRequest">
+    <contexte>
+        <item name="infoMission" id="item1">infoMissiondddd</item>
+    </contexte>
+    <use type="simple" serviceName="rejectRequest" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2">infoMissiondddd</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="MOSigned" id="item3">MOSigned</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" name="MOSigned" id="item4">MOSigned</item>
+    </provide>
+</service>

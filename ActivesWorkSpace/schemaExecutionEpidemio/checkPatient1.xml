@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="checkPatient">
+    <contexte>
+        <item name="todo" id="item1">NoTodo</item>
+    </contexte>
+    <use type="simple" manually="true" serviceName="checkPatient" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="todo" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="checkRes" id="item3">NoTodo</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" id="item4" name="checkRes">NoTodo</item>
+    </provide>
+</service>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="defineSpecifications">
+    <contexte>
+        <item name="codeBesoin" id="item1">codeBesoinValue</item>
+        <item name="descriptionBesoin" id="item2">descriptionBesoinValue</item>
+    </contexte>
+    <use type="simple" serviceName="defineSpecifications" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="codeBesoin" id="item3">codeBesoinValue</item>
+            <item refItem="item2" name="descriptionBesoin" id="item4">descriptionBesoinValue</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeCahier" id="item5">cahierCharges</item>
+            <item name="cahierCharges" id="item6">cahierChargesValue</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" name="codeCahier" id="item7">cahierCharges</item>
+        <item refItem="item6" name="cahierCharges" id="item8">cahierChargesValue</item>
+    </provide>
+</service>

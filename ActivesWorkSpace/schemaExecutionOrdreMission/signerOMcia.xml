@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="signerOMcia">
+    <contexte>
+        <item name="OM" id="item1"/>
+    </contexte>
+    <use type="composite"  serviceName="signerOMciaValide" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="OM" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="OMScia" id="item3"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="signerOMAgent" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item3" name="OMScia" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="OMSciaagent" id="item5"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" id="item6" name="OMSciaagent"></item>
+    </provide>
+</service>

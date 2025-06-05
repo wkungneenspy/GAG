@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="declareSuspectCase">
+    <contexte>
+        <item name="patient" id="item1"/>
+	<item name="symps" id="item2"/>
+	<item name="antecedents" id="item3"/>
+	<item name="@epi" id="item4"/>
+	<item name="samples" id="item5"/>
+    </contexte>
+    <use type="composite"  serviceName="quarantinePatient" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item6"/>
+        </inputParameter>
+        <outputParameter>
+		<item id="item29" name="nothing"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="requestLabAnalysis" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item5" name="samples" id="item7"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="labResult" id="item8"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="caseAnalysisOne" order="true" location="@epi">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item9"/>
+	    <item refItem="item2" name="symps" id="item10"/>
+	    <item refItem="item3" name="antecedents" id="item11"/>
+	    <item refItem="item8" name="labResult" id="item12"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="todo" id="item13"></item>
+	    <item name="alarm" id="item14"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="checkPatient" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item13" name="todo" id="item15"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="checkRes" id="item16"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="traceContacts" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item14" name="alarm" id="item17"/>
+	    <item refItem="item1" name="patient" id="item18"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="contactTraceRes" id="item19"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="caseAnalysisTwo" order="true" location="@epi">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item20"/>
+	    <item refItem="item2" name="symps" id="item21"/>
+	    <item refItem="item3" name="antecedents" id="item22"/>
+	    <item refItem="item16" name="checkRes" id="item23"/>
+	    <item refItem="item8" name="labResult" id="item24"/>
+	    <item refItem="item19" name="contactTraceRes" id="item25"/>		
+        </inputParameter>
+        <outputParameter>
+		<item id="item26" name="nothing"></item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item26" id="item27" name="nothing"></item>
+    </provide>
+</service>

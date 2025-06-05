@@ -1,0 +1,1 @@
+java -jar "C:/Users/Willy Kungne/Documents/dev/version13/GAGImplementation/ext/GAGImplementation.jar" "C:/gag/GagconfigFile.json" > "C:/Users/Willy Kungne/Documents/dev/version13/GAGImplementation/ext/log.txt"

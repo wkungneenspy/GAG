@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:insert name="meta">
+
+    </ui:insert>    
+
+    <h:head>
+        <title>
+            <ui:insert name="title">
+                Monitor Application
+            </ui:insert>
+        </title>
+
+        <script type="text/javascript">
+            PrimeFaces.locales ['fr'] = {
+                closeText: 'Fermer',
+                prevText: 'Précédent',
+                nextText: 'Suivant',
+                monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+                dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                weekHeader: 'Semaine',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Choisir l\'heure',
+                timeText: 'Heure',
+                hourText: 'Heures',
+                minuteText: 'Minutes',
+                secondText: 'Secondes',
+                currentText: 'Maintenant',
+                ampm: false,
+                month: 'Mois',
+                week: 'Semaine',
+                day: 'Jour',
+                allDayText: 'Toute la journée'
+            };
+        </script>
+
+        <h:outputStylesheet library="css" name="style.css" />
+
+    </h:head>
+    <h:body>
+        <f:view locale="en">
+            <div id="page">
+                <div id="head">
+                    <div class="fine_head"></div>
+                    <div class="clear"></div>
+                    <div class="name_site">
+                        <div class="hmenu">
+                            <ui:insert name="menuheader">
+                                <ui:include src="/WEB-INF/new_templates/menuhaut.xhtml"/>
+                            </ui:insert> 
+                        </div>
+                    </div>
+                    <div class="menu_head">
+                        <ui:insert name="middlemenu">
+                            <ui:include src="/WEB-INF/new_templates/middlemenu.xhtml"/>
+                        </ui:insert>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="photo_head"  >
+                        <table>
+                            <tr>
+                                <td >
+                                    <p:graphicImage value="./img/camtel.jpg" style="margin: 0"/> 
+                                </td>
+                                <td>
+                                    <h2 style="margin:10px 165px 30px 300px;">Runtime Engine for Purely Declarative Composite Services</h2>    
+                                </td>
+                                <td style="margin: 0">
+                                    <!-- <p:graphicImage value="./img/camtel.jpg" style="margin: 0"/> -->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="middle_top">
+
+
+                    <div id="zone2">
+                        <div id="body_column">
+                            <ui:insert name="content">
+                                <ui:include src="/WEB-INF/new_templates/content.xhtml"></ui:include>
+                            </ui:insert> 
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div id="footer">
+                    <div class="menu">
+                        <p align="center"> copyright@ willyK</p> 
+                    </div>          
+                </div>
+            </div>
+        </f:view>
+    </h:body>
+</html> 

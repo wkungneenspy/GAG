@@ -1,0 +1,5 @@
+Call defineSpecifications
+Receive defineSpecifications
+Call writeCallForTenders
+Receive writeCallForTenders
+Call selectCompanies

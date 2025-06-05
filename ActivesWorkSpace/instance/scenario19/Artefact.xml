@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="buildSchoolAS">
+    <contexte>
+        <item name="codeBesoin" id="item1">001</item>
+        <item name="descriptionBesoin" id="item2">descriptionBesoinValue</item>
+    </contexte>
+    <service type="simple" name="defineSpecifications">
+        <contexte>
+            <item name="codeBesoin" id="item1">001</item>
+            <item name="descriptionBesoin" id="item2">descriptionBesoinValue</item>
+        </contexte>
+        <service type="simple" name="defineSpecifications">
+            <contexte>
+                <item name="codeBesoin" id="item1">001</item>
+                <item name="descriptionBesoin" id="item2">descriptionBesoinValue</item>
+            </contexte>
+            <provide>
+                <item refItem="item5" name="codeCahier" id="item7">codeCahierValue</item>
+                <item refItem="item6" name="cahierCharges" id="item8">cahierChargesValue</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item5" name="codeCahier" id="item7">codeCahierValue</item>
+            <item refItem="item6" name="cahierCharges" id="item8">cahierChargesValue</item>
+        </provide>
+    </service>
+    <service type="simple" name="writeCallForTenders">
+        <contexte>
+            <item name="codeCahier" id="item1">codeCahierValue</item>
+            <item name="cahierCharges" id="item2">cahierChargesValue</item>
+        </contexte>
+        <service type="simple" name="writeCallForTenders">
+            <contexte>
+                <item name="codeCahier" id="item1">codeCahierValue</item>
+                <item name="cahierCharges" id="item2">cahierChargesValue</item>
+            </contexte>
+            <provide>
+                <item refItem="item5" name="codeAppel" id="item7">2</item>
+                <item refItem="item6" name="appelOffres" id="item8">appelOffresValue</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item5" name="codeAppel" id="item7">2</item>
+            <item refItem="item6" name="appelOffres" id="item8">appelOffresValue</item>
+        </provide>
+    </service>
+    <service type="simple" name="selectCompanies">
+        <contexte>
+            <item name="codeAppel" id="item1">2</item>
+            <item name="appelOffres" id="item2">appelOffresValue</item>
+        </contexte>
+        <service type="simple" name="selectCompanies">
+            <contexte>
+                <item name="codeAppel" id="item1">2</item>
+                <item name="appelOffres" id="item2">appelOffresValue</item>
+            </contexte>
+            <provide>
+                <item refItem="item5" name="codeEntreprise" id="item7">3</item>
+                <item refItem="item6" name="listeentreprises" id="item8">listeentreprisesValue</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item5" name="codeEntreprise" id="item7">3</item>
+            <item refItem="item6" name="listeentreprises" id="item8">listeentreprisesValue</item>
+        </provide>
+    </service>
+    <service type="simple" name="financeWorks">
+        <contexte>
+            <item name="codeEntreprise" id="item1">3</item>
+            <item name="listeentreprises" id="item2">listeentreprisesValue</item>
+        </contexte>
+        <service type="simple" name="financeWorks">
+            <contexte>
+                <item name="codeEntreprise" id="item1">3</item>
+                <item name="listeentreprises" id="item2">listeentreprisesValue</item>
+            </contexte>
+            <provide>
+                <item refItem="item5" name="codeFinancementE" id="item7">4</item>
+                <item refItem="item6" name="detailFinancement" id="item8">detailFinancementVALUE</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item5" name="codeFinancementE" id="item7">4</item>
+            <item refItem="item6" name="detailFinancement" id="item8">detailFinancementVALUE</item>
+        </provide>
+    </service>
+    <service type="simple" name="followConstruction">
+        <contexte>
+            <item name="codeEntreprise" id="item1">3</item>
+            <item name="codeFinancementE" id="item2">4</item>
+            <item name="listeentreprises" id="item3">listeentreprisesValue</item>
+            <item name="detailFinancement" id="item4">detailFinancementVALUE</item>
+        </contexte>
+        <service type="simple" name="followConstruction">
+            <contexte>
+                <item name="codeEntreprise" id="item1">3</item>
+                <item name="codeFinancementE" id="item2">4</item>
+                <item name="listeentreprises" id="item3">listeentreprisesValue</item>
+                <item name="detailFinancement" id="item4">detailFinancementVALUE</item>
+            </contexte>
+            <provide>
+                <item refItem="item9" name="codeProjet" id="item11">buildSchoolAS</item>
+                <item refItem="item10" name="rapportEtape" id="item12">1</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item9" name="codeProjet" id="item11">buildSchoolAS</item>
+            <item refItem="item10" name="rapportEtape" id="item12">1</item>
+        </provide>
+    </service>
+    <service type="simple" name="receiveWorks">
+        <contexte>
+            <item name="codeProjet" id="item1">buildSchoolAS</item>
+            <item name="rapportEtape" id="item2">1</item>
+        </contexte>
+        <service type="simple" name="receiveWorks">
+            <contexte>
+                <item name="codeProjet" id="item1">buildSchoolAS</item>
+                <item name="rapportEtape" id="item2">1</item>
+            </contexte>
+            <provide>
+                <item refItem="item5" name="codeProjet" id="item8">rapportEtapeValue</item>
+                <item refItem="item6" name="imageProjet" id="item9">buildSchoolAS</item>
+                <item refItem="item7" name="rapportFinal" id="item10">imageProjetValue</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item5" name="codeProjet" id="item8">rapportEtapeValue</item>
+            <item refItem="item6" name="imageProjet" id="item9">buildSchoolAS</item>
+            <item refItem="item7" name="rapportFinal" id="item10">imageProjetValue</item>
+        </provide>
+    </service>
+    <provide>
+        <item refItem="item25" name="codeProjet" id="item28">buildSchoolAS</item>
+        <item refItem="item26" name="imageProjet" id="item29">buildSchoolAS</item>
+        <item refItem="item27" name="rapportFinal" id="item30">imageProjetValue</item>
+    </provide>
+</service>

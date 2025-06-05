@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="organiserLogistique">
+    <contexte>
+        <item name="dateDepart" id="item1"/>
+        <item name="dateRetour" id="item2"/>
+	<item name="paysDepart" id="item3"/>
+	<item name="paysArrive" id="item4"/>
+    </contexte>
+    <use type="composite"  serviceName="reservationVoyage" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="dateDepart" id="item5"/>   
+	    <item refItem="item2" name="dateRetour" id="item6"/>
+	    <item refItem="item3" name="paysDepart" id="item7"/>
+            <item refItem="item4" name="paysArrive" id="item8"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="compagnieArerienne" id="item9"></item>
+	    <item name="numeroVol" id="item10"></item>
+	    <item name="numeroSiege" id="item11"></item>
+	    <item name="nomHotel" id="item12"></item>
+	    <item name="numeroChambre" id="item13"></item>
+	    <item name="numeroTaxi" id="item14"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item9" id="item15" name="compagnieArerienne"></item>
+	<item refItem="item10" id="item16" name="numeroVol"></item>
+	 <item refItem="item11" id="item17" name="numeroSiege"></item>
+	 <item refItem="item12" id="item18" name="nomHotel"></item>
+	 <item refItem="item13" id="item19" name="numeroChambre"></item>
+	 <item refItem="item14" id="item20" name="numeroTaxi"></item>	
+    </provide>
+</service>

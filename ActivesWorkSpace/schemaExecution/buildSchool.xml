@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="buildSchool">
+    <contexte>
+        <item name="codeBesoin" id="item1"/>
+		<item name="descriptionBesoin" id="item2"/>
+    </contexte>
+    <use type="composite"  serviceName="buildSchoolAS" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item1" name="codeBesoin" id="item3"/>
+			<item refItem="item2" name="descriptionBesoin" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeProjet" id="item5"/>
+			<item name="imageProjet" id="item6"/>
+			<item name="rapportFinal" id="item7"/>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" id="item8" name="codeProjet"></item>
+		<item refItem="item6" id="item9" name="imageProjet"></item>
+		<item refItem="item7" id="item10" name="rapportFinal"></item>
+    </provide>
+</service>

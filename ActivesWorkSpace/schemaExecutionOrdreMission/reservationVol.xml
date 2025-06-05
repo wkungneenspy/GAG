@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="reservationVol">
+    <contexte>
+        <item id="item1" name="dateDepart"/>
+        <item id="item2" name="dateRetour"/>
+        <item id="item3" name="paysDepart"/>
+        <item id="item4" name="paysArrive"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="reservationVol" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="dateDepart" id="item5"/>
+	    <item refItem="item2" name="dateRetour" id="item6"/>
+	    <item refItem="item3" name="paysDepart" id="item7"/>
+	    <item refItem="item4" name="paysArrive" id="item8"/>
+        </inputParameter>
+        <outputParameter>
+	    <item name="compagnieArerienne" id="item9"></item>
+	    <item name="NumeroVol" id="item10"></item>
+	    <item name="NumeroSiege" id="item11"></item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item9" name="compagnieArerienne" id="item12"/>
+	<item refItem="item10" name="NumeroVol" id="item13"/>
+	<item refItem="item11" name="NumeroSiege" id="item14"/>
+    </provide>
+</service>

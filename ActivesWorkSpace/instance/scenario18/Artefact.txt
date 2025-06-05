@@ -1,0 +1,7 @@
+Call defineSpecifications
+Receive defineSpecifications
+Call writeCallForTenders
+Receive writeCallForTenders
+Call selectCompanies
+Receive selectCompanies
+Call financeWorks

@@ -1,0 +1,6 @@
+Call trainBooking
+Receive trainBooking
+Call hotelReservation
+Receive hotelReservation
+Call carRenting
+Receive carRenting

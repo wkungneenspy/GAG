@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="preparingLogistic">
+    <contexte>
+        <item name="reserve" id="item1">reserve valeur</item>
+    </contexte>
+    <use type="composite" serviceName="trainBooking" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="reserve" id="item2">reserve valeur</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="infoReserve" id="item3">InfoReserve valeur</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="hotelReservation" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="reserve" id="item4">reserve valeur</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="infoReserve" id="item5">InfoReserve valeur</item>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="carRenting" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="reserve" id="item6">reserve valeur</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="infoReserve" id="item7">InfoReserve valeur</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" name="infoReserve" id="item8">InfoReserve valeur</item>
+    </provide>
+</service>

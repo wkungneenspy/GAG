@@ -1,0 +1,1243 @@
+Length  1
+Loading C:/gag/GagconfigFile.json....
+Loading C:/gag/GagconfigFile.json....
+-----------------------------------------------
+--> Choose Operation
+--> Type 1 to launch sent mode Or
+--> Type 2 to launch receive mode
+-----------------------------------------------
+Je dors un peu
+Je dors un peu
+x = 1
+MODE 1
+
+Start Instance Treatment
+
+
+--> Choose Operation
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+x = buildSchoolAS
+srcPath C:/gag/version13/ActivesWorkSpace/schemaExecution/buildSchoolAS.xml
+destPath C:/gag/version13/ActivesWorkSpace/instance/scenario19/
+instance buildSchoolAS.xml
+Service Found :
+ -------------> buildSchoolAS INPUT (codeBesoin,descriptionBesoin) OUTPUT (codeProjet,imageProjet,rapportFinal)
+Give Value to codeBesoin:
+Je dors un peu
+x = 001
+Give Value to descriptionBesoin:
+Je dors un peu
+x = descriptionBesoinValue
+
+Service composite
+
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+org.exolab.jms.tools.admin.OnlineConnectionException: Failed to connect: javax.jms.JMSException: Failed to get registry service for URL: tcp://127.0.0.1:3035/
+	at org.exolab.jms.tools.admin.OnlineConnection.<init>(OnlineConnection.java:146)
+	at org.exolab.jms.tools.admin.AdminMgr.main(AdminMgr.java:609)
+Failed to initialize AdminMgr.
+Exiting....
+----End shutdown JMS 
+
+----- Added Queue8 Of The Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:50:25.552 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:50:25.552 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:50:25.552 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:50:25.678 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:50:25.678 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:50:25.678 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+codeBesoin content = 001
+descriptionBesoin content = descriptionBesoinValue
+<<<<<<<<<<<<<<<<<<<< 
+Message Sent
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = defineSpecifications
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = defineSpecifications ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeBesoin:001
+>>>>>>>>>>>>>>>>>>> Input 1 descriptionBesoin:descriptionBesoinValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeCahier:
+>>>>>>>>>>>>>>>>>>> Output 1 cahierCharges:
+
+Launching Thread to listen another connections
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+org.exolab.jms.server.ServerException: org.exolab.jms.persistence.PersistenceException: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Failed to start database 'openjmsdb', see the next exception for details.)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:855)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:540)
+	at org.exolab.jms.persistence.DBCPConnectionManager.getConnection(DBCPConnectionManager.java:121)
+	at org.exolab.jms.persistence.RDBMSAdapter.getConnection(RDBMSAdapter.java:696)
+	at org.exolab.jms.persistence.RDBMSAdapter.<init>(RDBMSAdapter.java:177)
+	at org.exolab.jms.persistence.DatabaseService.createAdapter(DatabaseService.java:311)
+	at org.exolab.jms.persistence.DatabaseService.doStart(DatabaseService.java:240)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.service.ServiceManager.doStart(ServiceManager.java:176)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.server.JmsServer.init(JmsServer.java:146)
+	at org.exolab.jms.server.JmsServer.main(JmsServer.java:178)
+Caused by: SQL Exception: Failed to start database 'openjmsdb', see the next exception for details.
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver30.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:37)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:290)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:877)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:851)
+	... 11 more
+4
+5
+6
+--------End startup JMS 
+
+
+>>>>>>>>>>>>>>>>>>> MainQueue Received Message
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = defineSpecifications
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = defineSpecifications ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeBesoin:001
+>>>>>>>>>>>>>>>>>>> Input 1 descriptionBesoin:descriptionBesoinValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeCahier:
+>>>>>>>>>>>>>>>>>>> Output 1 cahierCharges:
+
+ ----- Service Choosen  = defineSpecifications INPUT (codeBesoin,descriptionBesoin) OUTPUT (codeCahier,cahierCharges)
+
+*************************************
+
+****** Operation Name: defineSpecifications
+
+****** Input Parameter
+N° 0 = 001
+N° 1 = descriptionBesoinValue
+
+------ Please, Complete field following
+Give Value to codeCahier
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+x = codeCahierValue
+Give Value to cahierCharges
+Je dors un peu
+x = cahierChargesValue
+JSON Manuel {codeCahier:codeCahierValue,cahierCharges:cahierChargesValue}
+>>>>>>>>> 
+Simple Message received
+>>>>>>>>> Operation Name defineSpecifications
+>>>>>>>>> OutParam 0 Name codeCahier : Content codeCahierValue
+>>>>>>>>> OutParam 1 Name cahierCharges : Content cahierChargesValue
+
+>>>>>>>>>>>>>>>>>>> Message Sent <<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = defineSpecifications
+>>>>>>>>>>>>>>>>>>> Input 0 codeBesoin:001
+>>>>>>>>>>>>>>>>>>> Input 1 descriptionBesoin:descriptionBesoinValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeCahier:codeCahierValue
+>>>>>>>>>>>>>>>>>>> Output 1 cahierCharges:cahierChargesValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  defineSpecifications
+
+>>>><<<<<<<<<<<<<<<<<<<<< Message Received1 >>>>>>>>>>>>>>>>>>>>
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = defineSpecifications
+>>>>>>>>>>>>>>>>>>> Input 0 codeBesoin:001
+>>>>>>>>>>>>>>>>>>> Input 1 descriptionBesoin:descriptionBesoinValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeCahier:codeCahierValue
+>>>>>>>>>>>>>>>>>>> Output 1 cahierCharges:cahierChargesValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  defineSpecifications
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+Remove queue8 Of the Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:52:14.118 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:52:14.118 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:52:14.118 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:52:14.197 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:52:14.197 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:52:14.197 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+Continue with writeCallForTenders service
+
+Service composite
+
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+----- Added Queue8 Of The Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:52:34.151 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:52:34.151 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:52:34.151 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:52:34.215 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:52:34.215 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:52:34.215 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+codeCahier content = codeCahierValue
+cahierCharges content = cahierChargesValue
+<<<<<<<<<<<<<<<<<<<< 
+Message Sent
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = writeCallForTenders
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = writeCallForTenders ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeCahier:codeCahierValue
+>>>>>>>>>>>>>>>>>>> Input 1 cahierCharges:cahierChargesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeAppel:
+>>>>>>>>>>>>>>>>>>> Output 1 appelOffres:
+
+Launching Thread to listen another connections
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+org.exolab.jms.server.ServerException: org.exolab.jms.persistence.PersistenceException: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Failed to start database 'openjmsdb', see the next exception for details.)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:855)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:540)
+	at org.exolab.jms.persistence.DBCPConnectionManager.getConnection(DBCPConnectionManager.java:121)
+	at org.exolab.jms.persistence.RDBMSAdapter.getConnection(RDBMSAdapter.java:696)
+	at org.exolab.jms.persistence.RDBMSAdapter.<init>(RDBMSAdapter.java:177)
+	at org.exolab.jms.persistence.DatabaseService.createAdapter(DatabaseService.java:311)
+	at org.exolab.jms.persistence.DatabaseService.doStart(DatabaseService.java:240)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.service.ServiceManager.doStart(ServiceManager.java:176)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.server.JmsServer.init(JmsServer.java:146)
+	at org.exolab.jms.server.JmsServer.main(JmsServer.java:178)
+Caused by: SQL Exception: Failed to start database 'openjmsdb', see the next exception for details.
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver30.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:37)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:290)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:877)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:851)
+	... 11 more
+4
+5
+6
+--------End startup JMS 
+
+
+>>>>>>>>>>>>>>>>>>> MainQueue Received Message
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = writeCallForTenders
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = writeCallForTenders ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeCahier:codeCahierValue
+>>>>>>>>>>>>>>>>>>> Input 1 cahierCharges:cahierChargesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeAppel:
+>>>>>>>>>>>>>>>>>>> Output 1 appelOffres:
+
+ ----- Service Choosen  = writeCallForTenders INPUT (codeCahier,cahierCharges) OUTPUT (codeAppel,appelOffres)
+
+*************************************
+
+****** Operation Name: writeCallForTenders
+
+****** Input Parameter
+N° 0 = codeCahierValue
+N° 1 = cahierChargesValue
+
+------ Please, Complete field following
+Give Value to codeAppel
+Je dors un peu
+x = 002
+Give Value to appelOffres
+Je dors un peu
+x = appelOffresValue
+JSON Manuel {codeAppel:002,appelOffres:appelOffresValue}
+>>>>>>>>> 
+Simple Message received
+>>>>>>>>> Operation Name writeCallForTenders
+>>>>>>>>> OutParam 0 Name codeAppel : Content 2
+>>>>>>>>> OutParam 1 Name appelOffres : Content appelOffresValue
+
+>>>>>>>>>>>>>>>>>>> Message Sent <<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = writeCallForTenders
+>>>>>>>>>>>>>>>>>>> Input 0 codeCahier:codeCahierValue
+>>>>>>>>>>>>>>>>>>> Input 1 cahierCharges:cahierChargesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeAppel:2
+>>>>>>>>>>>>>>>>>>> Output 1 appelOffres:appelOffresValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  writeCallForTenders
+
+>>>><<<<<<<<<<<<<<<<<<<<< Message Received1 >>>>>>>>>>>>>>>>>>>>
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = writeCallForTenders
+>>>>>>>>>>>>>>>>>>> Input 0 codeCahier:codeCahierValue
+>>>>>>>>>>>>>>>>>>> Input 1 cahierCharges:cahierChargesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeAppel:2
+>>>>>>>>>>>>>>>>>>> Output 1 appelOffres:appelOffresValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  writeCallForTenders
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+Remove queue8 Of the Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:53:22.644 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:53:22.644 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:53:22.644 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:53:22.723 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:53:22.723 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:53:22.723 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+Continue with selectCompanies service
+
+Service composite
+
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+----- Added Queue8 Of The Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:53:42.683 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:53:42.683 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:53:42.683 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:53:42.778 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:53:42.778 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:53:42.778 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+codeAppel content = 2
+appelOffres content = appelOffresValue
+<<<<<<<<<<<<<<<<<<<< 
+Message Sent
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = selectCompanies
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = selectCompanies ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeAppel:2
+>>>>>>>>>>>>>>>>>>> Input 1 appelOffres:appelOffresValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeEntreprise:
+>>>>>>>>>>>>>>>>>>> Output 1 listeentreprises:
+
+Launching Thread to listen another connections
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+org.exolab.jms.server.ServerException: org.exolab.jms.persistence.PersistenceException: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Failed to start database 'openjmsdb', see the next exception for details.)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:855)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:540)
+	at org.exolab.jms.persistence.DBCPConnectionManager.getConnection(DBCPConnectionManager.java:121)
+	at org.exolab.jms.persistence.RDBMSAdapter.getConnection(RDBMSAdapter.java:696)
+	at org.exolab.jms.persistence.RDBMSAdapter.<init>(RDBMSAdapter.java:177)
+	at org.exolab.jms.persistence.DatabaseService.createAdapter(DatabaseService.java:311)
+	at org.exolab.jms.persistence.DatabaseService.doStart(DatabaseService.java:240)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.service.ServiceManager.doStart(ServiceManager.java:176)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.server.JmsServer.init(JmsServer.java:146)
+	at org.exolab.jms.server.JmsServer.main(JmsServer.java:178)
+Caused by: SQL Exception: Failed to start database 'openjmsdb', see the next exception for details.
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver30.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:37)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:290)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:877)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:851)
+	... 11 more
+4
+5
+6
+--------End startup JMS 
+
+
+>>>>>>>>>>>>>>>>>>> MainQueue Received Message
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = selectCompanies
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = selectCompanies ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeAppel:2
+>>>>>>>>>>>>>>>>>>> Input 1 appelOffres:appelOffresValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeEntreprise:
+>>>>>>>>>>>>>>>>>>> Output 1 listeentreprises:
+
+ ----- Service Choosen  = selectCompanies INPUT (codeAppel,appelOffres) OUTPUT (codeEntreprise,listeentreprises)
+
+*************************************
+
+****** Operation Name: selectCompanies
+
+****** Input Parameter
+N° 0 = 2
+N° 1 = appelOffresValue
+
+------ Please, Complete field following
+Give Value to codeEntreprise
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+x = 003
+Give Value to listeentreprises
+Je dors un peu
+x = listeentreprisesValue
+JSON Manuel {codeEntreprise:003,listeentreprises:listeentreprisesValue}
+>>>>>>>>> 
+Simple Message received
+>>>>>>>>> Operation Name selectCompanies
+>>>>>>>>> OutParam 0 Name codeEntreprise : Content 3
+>>>>>>>>> OutParam 1 Name listeentreprises : Content listeentreprisesValue
+
+>>>>>>>>>>>>>>>>>>> Message Sent <<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = selectCompanies
+>>>>>>>>>>>>>>>>>>> Input 0 codeAppel:2
+>>>>>>>>>>>>>>>>>>> Input 1 appelOffres:appelOffresValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Output 1 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  selectCompanies
+
+>>>><<<<<<<<<<<<<<<<<<<<< Message Received1 >>>>>>>>>>>>>>>>>>>>
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = selectCompanies
+>>>>>>>>>>>>>>>>>>> Input 0 codeAppel:2
+>>>>>>>>>>>>>>>>>>> Input 1 appelOffres:appelOffresValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Output 1 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  selectCompanies
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+Remove queue8 Of the Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:54:55.091 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:54:55.091 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:54:55.091 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:54:55.157 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:54:55.157 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:54:55.157 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+Continue with financeWorks service
+
+Service composite
+
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+----- Added Queue8 Of The Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:55:15.122 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:55:15.137 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:55:15.137 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:55:15.212 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:55:15.212 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:55:15.212 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+codeEntreprise content = 3
+listeentreprises content = listeentreprisesValue
+<<<<<<<<<<<<<<<<<<<< 
+Message Sent
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = financeWorks
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = financeWorks ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeFinancementE:
+>>>>>>>>>>>>>>>>>>> Output 1 detailFinancement:
+
+Launching Thread to listen another connections
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+org.exolab.jms.server.ServerException: org.exolab.jms.persistence.PersistenceException: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Failed to start database 'openjmsdb', see the next exception for details.)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:855)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:540)
+	at org.exolab.jms.persistence.DBCPConnectionManager.getConnection(DBCPConnectionManager.java:121)
+	at org.exolab.jms.persistence.RDBMSAdapter.getConnection(RDBMSAdapter.java:696)
+	at org.exolab.jms.persistence.RDBMSAdapter.<init>(RDBMSAdapter.java:177)
+	at org.exolab.jms.persistence.DatabaseService.createAdapter(DatabaseService.java:311)
+	at org.exolab.jms.persistence.DatabaseService.doStart(DatabaseService.java:240)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.service.ServiceManager.doStart(ServiceManager.java:176)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.server.JmsServer.init(JmsServer.java:146)
+	at org.exolab.jms.server.JmsServer.main(JmsServer.java:178)
+Caused by: SQL Exception: Failed to start database 'openjmsdb', see the next exception for details.
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver30.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:37)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:290)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:877)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:851)
+	... 11 more
+4
+5
+6
+--------End startup JMS 
+
+
+>>>>>>>>>>>>>>>>>>> MainQueue Received Message
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = financeWorks
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = financeWorks ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeFinancementE:
+>>>>>>>>>>>>>>>>>>> Output 1 detailFinancement:
+
+ ----- Service Choosen  = financeWorks INPUT (codeEntreprise,listeentreprises) OUTPUT (codeFinancementE,detailFinancement)
+
+*************************************
+
+****** Operation Name: financeWorks
+
+****** Input Parameter
+N° 0 = 3
+N° 1 = listeentreprisesValue
+
+------ Please, Complete field following
+Give Value to codeFinancementE
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+x = 004
+Give Value to detailFinancement
+Je dors un peu
+x = detailFinancementVALUE
+JSON Manuel {codeFinancementE:004,detailFinancement:detailFinancementVALUE}
+>>>>>>>>> 
+Simple Message received
+>>>>>>>>> Operation Name financeWorks
+>>>>>>>>> OutParam 0 Name codeFinancementE : Content 4
+>>>>>>>>> OutParam 1 Name detailFinancement : Content detailFinancementVALUE
+
+>>>>>>>>>>>>>>>>>>> Message Sent <<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = financeWorks
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeFinancementE:4
+>>>>>>>>>>>>>>>>>>> Output 1 detailFinancement:detailFinancementVALUE
+>>>>>>>>>>>>>>>>>>> Solved Service Name  financeWorks
+
+>>>><<<<<<<<<<<<<<<<<<<<< Message Received1 >>>>>>>>>>>>>>>>>>>>
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = financeWorks
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Output 0 codeFinancementE:4
+>>>>>>>>>>>>>>>>>>> Output 1 detailFinancement:detailFinancementVALUE
+>>>>>>>>>>>>>>>>>>> Solved Service Name  financeWorks
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+Remove queue8 Of the Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:56:15.644 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:56:15.656 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:56:15.656 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:56:15.754 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:56:15.754 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:56:15.754 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+Continue with followConstruction service
+
+Service composite
+
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+----- Added Queue8 Of The Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+12:56:35.511 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+12:56:35.527 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+12:56:35.527 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+12:56:35.590 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+12:56:35.590 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+12:56:35.590 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+codeEntreprise content = 3
+codeFinancementE content = 4
+listeentreprises content = listeentreprisesValue
+detailFinancement content = detailFinancementVALUE
+<<<<<<<<<<<<<<<<<<<< 
+Message Sent
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = followConstruction
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = followConstruction ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 codeFinancementE:4
+>>>>>>>>>>>>>>>>>>> Input 2 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Input 3 detailFinancement:detailFinancementVALUE
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:
+>>>>>>>>>>>>>>>>>>> Output 1 rapportEtape:
+
+Launching Thread to listen another connections
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+org.exolab.jms.server.ServerException: org.exolab.jms.persistence.PersistenceException: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Failed to start database 'openjmsdb', see the next exception for details.)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:855)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:540)
+	at org.exolab.jms.persistence.DBCPConnectionManager.getConnection(DBCPConnectionManager.java:121)
+	at org.exolab.jms.persistence.RDBMSAdapter.getConnection(RDBMSAdapter.java:696)
+	at org.exolab.jms.persistence.RDBMSAdapter.<init>(RDBMSAdapter.java:177)
+	at org.exolab.jms.persistence.DatabaseService.createAdapter(DatabaseService.java:311)
+	at org.exolab.jms.persistence.DatabaseService.doStart(DatabaseService.java:240)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.service.ServiceManager.doStart(ServiceManager.java:176)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.server.JmsServer.init(JmsServer.java:146)
+	at org.exolab.jms.server.JmsServer.main(JmsServer.java:178)
+Caused by: SQL Exception: Failed to start database 'openjmsdb', see the next exception for details.
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver30.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:37)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:290)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:877)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:851)
+	... 11 more
+4
+5
+6
+--------End startup JMS 
+
+
+>>>>>>>>>>>>>>>>>>> MainQueue Received Message
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = followConstruction
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = followConstruction ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 codeFinancementE:4
+>>>>>>>>>>>>>>>>>>> Input 2 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Input 3 detailFinancement:detailFinancementVALUE
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:
+>>>>>>>>>>>>>>>>>>> Output 1 rapportEtape:
+
+ ----- Service Choosen  = followConstruction INPUT (codeEntreprise,codeFinancementE,listeentreprises,detailFinancement) OUTPUT (codeProjet,rapportEtape)
+
+*************************************
+
+****** Operation Name: followConstruction
+
+****** Input Parameter
+N° 0 = 3
+N° 1 = 4
+N° 2 = listeentreprisesValue
+N° 3 = detailFinancementVALUE
+
+------ Please, Complete field following
+Give Value to codeProjet
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+x = buildSchoolAS
+Give Value to rapportEtape
+Je dors un peu
+x = 001
+JSON Manuel {codeProjet:buildSchoolAS,rapportEtape:001}
+>>>>>>>>> 
+Simple Message received
+>>>>>>>>> Operation Name followConstruction
+>>>>>>>>> OutParam 0 Name codeProjet : Content buildSchoolAS
+>>>>>>>>> OutParam 1 Name rapportEtape : Content 1
+
+>>>>>>>>>>>>>>>>>>> Message Sent <<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = followConstruction
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 codeFinancementE:4
+>>>>>>>>>>>>>>>>>>> Input 2 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Input 3 detailFinancement:detailFinancementVALUE
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Output 1 rapportEtape:1
+>>>>>>>>>>>>>>>>>>> Solved Service Name  followConstruction
+
+>>>><<<<<<<<<<<<<<<<<<<<< Message Received1 >>>>>>>>>>>>>>>>>>>>
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = followConstruction
+>>>>>>>>>>>>>>>>>>> Input 0 codeEntreprise:3
+>>>>>>>>>>>>>>>>>>> Input 1 codeFinancementE:4
+>>>>>>>>>>>>>>>>>>> Input 2 listeentreprises:listeentreprisesValue
+>>>>>>>>>>>>>>>>>>> Input 3 detailFinancement:detailFinancementVALUE
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Output 1 rapportEtape:1
+>>>>>>>>>>>>>>>>>>> Solved Service Name  followConstruction
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+Remove queue8 Of the Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+13:01:04.235 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+13:01:04.235 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+13:01:04.235 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+13:01:04.315 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+13:01:04.315 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+13:01:04.315 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+Continue with receiveWorks service
+
+Service composite
+
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+----- Added Queue8 Of The Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+13:01:24.299 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+13:01:24.315 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+13:01:24.315 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+13:01:24.379 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+13:01:24.379 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+13:01:24.379 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+codeProjet content = buildSchoolAS
+rapportEtape content = 1
+<<<<<<<<<<<<<<<<<<<< 
+Message Sent
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = receiveWorks
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = receiveWorks ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Input 1 rapportEtape:1
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Output 1 imageProjet:1
+>>>>>>>>>>>>>>>>>>> Output 2 rapportFinal:
+
+Launching Thread to listen another connections
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+org.exolab.jms.server.ServerException: org.exolab.jms.persistence.PersistenceException: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Failed to start database 'openjmsdb', see the next exception for details.)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:855)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:540)
+	at org.exolab.jms.persistence.DBCPConnectionManager.getConnection(DBCPConnectionManager.java:121)
+	at org.exolab.jms.persistence.RDBMSAdapter.getConnection(RDBMSAdapter.java:696)
+	at org.exolab.jms.persistence.RDBMSAdapter.<init>(RDBMSAdapter.java:177)
+	at org.exolab.jms.persistence.DatabaseService.createAdapter(DatabaseService.java:311)
+	at org.exolab.jms.persistence.DatabaseService.doStart(DatabaseService.java:240)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.service.ServiceManager.doStart(ServiceManager.java:176)
+	at org.exolab.jms.service.Service.start(Service.java:97)
+	at org.exolab.jms.server.JmsServer.init(JmsServer.java:146)
+	at org.exolab.jms.server.JmsServer.main(JmsServer.java:178)
+Caused by: SQL Exception: Failed to start database 'openjmsdb', see the next exception for details.
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver30.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:37)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:290)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:877)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:851)
+	... 11 more
+4
+5
+6
+--------End startup JMS 
+
+
+>>>>>>>>>>>>>>>>>>> MainQueue Received Message
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = receiveWorks
+>>>>>>>>>>>>>>>>>>> Previous 0 Simple OperationName = receiveWorks ; Host = localhost ; Channel = queue8
+>>>>>>>>>>>>>>>>>>> Input 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Input 1 rapportEtape:1
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Output 1 imageProjet:1
+>>>>>>>>>>>>>>>>>>> Output 2 rapportFinal:
+
+ ----- Service Choosen  = receiveWorks INPUT (codeProjet,rapportEtape) OUTPUT (codeProjet,imageProjet,rapportFinal)
+
+*************************************
+
+****** Operation Name: receiveWorks
+
+****** Input Parameter
+N° 0 = buildSchoolAS
+N° 1 = 1
+
+------ Please, Complete field following
+Give Value to codeProjet
+x = rapportEtapeValue
+Give Value to imageProjet
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+Je dors un peu
+x = buildSchoolAS
+Give Value to rapportFinal
+Je dors un peu
+Je dors un peu
+x = imageProjetValue
+JSON Manuel {codeProjet:rapportEtapeValue,imageProjet:buildSchoolAS,rapportFinal:imageProjetValue}
+>>>>>>>>> 
+Simple Message received
+>>>>>>>>> Operation Name receiveWorks
+>>>>>>>>> OutParam 0 Name codeProjet : Content rapportEtapeValue
+>>>>>>>>> OutParam 1 Name imageProjet : Content buildSchoolAS
+>>>>>>>>> OutParam 2 Name rapportFinal : Content imageProjetValue
+
+>>>>>>>>>>>>>>>>>>> Message Sent <<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = receiveWorks
+>>>>>>>>>>>>>>>>>>> Input 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Input 1 rapportEtape:1
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:rapportEtapeValue
+>>>>>>>>>>>>>>>>>>> Output 1 imageProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Output 2 rapportFinal:imageProjetValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  receiveWorks
+
+>>>><<<<<<<<<<<<<<<<<<<<< Message Received1 >>>>>>>>>>>>>>>>>>>>
+
+>>>>>>>>>>>>>>>>>>> Host = localhost
+>>>>>>>>>>>>>>>>>>> Queue = queue8
+>>>>>>>>>>>>>>>>>>> OpName = receiveWorks
+>>>>>>>>>>>>>>>>>>> Input 0 codeProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Input 1 rapportEtape:1
+>>>>>>>>>>>>>>>>>>> Output 0 codeProjet:rapportEtapeValue
+>>>>>>>>>>>>>>>>>>> Output 1 imageProjet:buildSchoolAS
+>>>>>>>>>>>>>>>>>>> Output 2 rapportFinal:imageProjetValue
+>>>>>>>>>>>>>>>>>>> Solved Service Name  receiveWorks
+
+----Start shutdown JMS
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+----End shutdown JMS 
+
+Remove queue8 Of the Broker
+
+--------Start startup JMS
+1
+2
+3
+Using OPENJMS_HOME: C:\gag\openjms-0.7.7-beta-1
+Using JAVA_HOME:    C:\Program Files\Java\jdk1.8.0_202
+Using CLASSPATH:    C:\gag\openjms-0.7.7-beta-1/lib/derby-10.1.1.0.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;C:\gag\openjms-0.7.7-beta-1\lib\openjms-tools-0.7.7-beta-1.jar
+OpenJMS 0.7.7-beta-1
+The OpenJMS Group. (C) 1999-2007. All rights reserved.
+http://openjms.sourceforge.net
+13:02:56.941 INFO  [main] - Server accepting connections on tcp://127.0.0.1:3035/
+13:02:56.941 INFO  [main] - JNDI service accepting connections on tcp://127.0.0.1:3035/
+13:02:56.941 INFO  [main] - Admin service accepting connections on tcp://127.0.0.1:3035/
+13:02:57.036 INFO  [main] - Server accepting connections on rmi://127.0.0.1:1099/
+13:02:57.036 INFO  [main] - JNDI service accepting connections on rmi://127.0.0.1:1099/
+13:02:57.036 INFO  [main] - Admin service accepting connections on rmi://127.0.0.1:1099/
+4
+5
+6
+--------End startup JMS 
+
+
+End Of Treatement C:/gag/version13/ActivesWorkSpace/instance/scenario19/buildSchoolAS.xml
+
+buildSchoolAS === buildSchoolAS
+Contexte Size = 0

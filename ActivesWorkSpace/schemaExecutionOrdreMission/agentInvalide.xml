@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="agentInvalide">
+    <contexte>
+        <item name="infoMission" id="item1"/>
+    </contexte>
+    <use type="composite"  serviceName="creationAgent" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="agent" id="item3"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" id="item4" name="agent"></item>
+    </provide>
+</service>

@@ -1,0 +1,10 @@
+{
+    "openJMSHOME":"/home/willyk/dev/openjms-0.7.7-beta-1",
+    "configPath":"/home/willyk/dev/version13/ActivesWorkSpace/config.xml",
+    "openJMSConfigPath":"/home/willyk/dev/openjms-0.7.7-beta-1/config/openjms.xml",
+    "schemaExecution":"/home/willyk/dev/version13/ActivesWorkSpace/schemaExecution",
+    "instanceFolder":"/home/willyk/dev/version13/ActivesWorkSpace/instance",
+    "mutexFile":"/home/willyk/dev/version13/",
+    "loginParam": "willy###willy",
+    "role":"Employee"
+}

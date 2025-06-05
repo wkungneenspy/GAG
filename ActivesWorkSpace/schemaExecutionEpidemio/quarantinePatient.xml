@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="quarantinePatient">
+    <contexte>
+        <item name="patient" id="item1"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="quarantinePatient" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+	    <item id="item3" name="nothing">Nothing</item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item3" id="item4" name="nothing"></item>
+    </provide>
+</service>

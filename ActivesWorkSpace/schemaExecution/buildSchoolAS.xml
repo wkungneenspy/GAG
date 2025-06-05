@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="buildSchoolAS">
+    <contexte>
+        <item name="codeBesoin" id="item1"/>
+		<item name="descriptionBesoin" id="item2"/>
+    </contexte>
+    <use type="composite"  serviceName="defineSpecifications" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item refItem="item1" name="codeBesoin" id="item3"/>
+			<item refItem="item2" name="descriptionBesoin" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeCahier" id="item5"/>
+			<item name="cahierCharges" id="item6"/>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="writeCallForTenders" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item name="codeCahier" refItem="item5" id="item7"/>
+			<item name="cahierCharges" refItem="item6" id="item8"/>
+        </inputParameter>
+        <outputParameter>
+			<item name="codeAppel" id="item9"/>
+			<item name="appelOffres" id="item10"/>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="selectCompanies" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item name="codeAppel" refItem="item9" id="item11"/>
+			<item name="appelOffres" refItem="item10" id="item12"/>
+        </inputParameter>
+        <outputParameter>
+			<item name="codeEntreprise" id="item13"/>
+			<item name="listeentreprises" id="item14"/>
+        </outputParameter>
+    </use>
+	<use type="composite"  serviceName="financeWorks" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item name="codeEntreprise" refItem="item13" id="item15"/>
+			<item name="listeentreprises" refItem="item14" id="item16"/>
+        </inputParameter>
+        <outputParameter>
+			<item name="codeFinancementE" id="item17"/>
+			<item name="detailFinancement" id="item18"/>
+        </outputParameter>
+    </use>
+	<use type="composite"  serviceName="followConstruction" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item name="codeEntreprise" refItem="item13" id="item19"/>
+			<item name="codeFinancementE" refItem="item17" id="item20"/>
+			<item name="listeentreprises" refItem="item14" id="item21"/>
+			<item name="detailFinancement" refItem="item18" id="item22"/>
+        </inputParameter>
+        <outputParameter>
+			<item name="codeProjet" id="item23"/>
+			<item name="rapportEtape" id="item24"/>
+        </outputParameter>
+    </use>
+	<use type="composite"  serviceName="receiveWorks" order="true" location="127.0.0.1">
+        <inputParameter>
+            <item name="codeProjet" refItem="item23" id="item25"/>
+			<item name="rapportEtape" refItem="item24" id="item26"/>
+        </inputParameter>
+        <outputParameter>
+			<item name="codeProjet" id="item25"/>
+			<item name="imageProjet" id="item26"/>
+			<item name="rapportFinal" id="item27"/>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item25" id="item28" name="codeProjet"></item>
+		<item refItem="item26" id="item29" name="imageProjet"></item>
+		<item refItem="item27" id="item30" name="rapportFinal"></item>
+    </provide>
+</service>

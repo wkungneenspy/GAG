@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="demandeValide">
+    <contexte>
+        <item name="infoMission" id="item1"/>
+    </contexte>
+    <use type="composite"  serviceName="creationOMStart" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="agent" id="item3"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="appreciationCIA" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="infoMission" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="OM" id="item5"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" id="item6" name="OM"></item>
+    </provide>
+</service>

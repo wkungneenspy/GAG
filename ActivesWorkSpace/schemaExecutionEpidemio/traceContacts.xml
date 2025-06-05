@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="traceContacts">
+    <contexte>
+        <item name="alarm" id="item1"/>
+	<item name="patient" id="item2"/>
+	<item name="contactList" id="item3"/>
+    </contexte>
+    <use type="composite" serviceName="traceContact" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item3" name="contactList" id="item4"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="contactTraceRes" id="item5"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" id="item6" name="contactTraceRes"></item>
+    </provide>
+</service>

@@ -1,0 +1,10 @@
+{
+    "openJMSHOME":"C:/gag/openjms-0.7.7-beta-1",
+    "configPath":"C:/gag/version13/ActivesWorkSpace/config.xml",
+    "openJMSConfigPath":"C:/gag/openjms-0.7.7-beta-1/config/openjms.xml",
+    "schemaExecution":"C:/gag/version13/ActivesWorkSpace/schemaExecution",
+    "instanceFolder":"C:/gag/version13/ActivesWorkSpace/instance",
+    "mutexFile":"C:/gag/version13/",
+    "loginParam": "willy###willy",
+    "role":"Employee"
+}

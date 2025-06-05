@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+    <application>
+        <resource-bundle>
+            <base-name>
+                messages
+            </base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+	
+    <navigation-rule>
+        <display-name>navigation</display-name>
+        <navigation-case>
+            <from-outcome>configure</from-outcome>
+            <to-view-id>/user/configure.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>listeAlerte</from-outcome>
+            <to-view-id>/alerte/listeAlerte.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>defineTime</from-outcome>
+            <to-view-id>/user/defineTime.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>seuil</from-outcome>
+            <to-view-id>/user/definirSeuil.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>dessin</from-outcome>
+            <to-view-id>/user/lineChart.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>definirSeuil</from-outcome>
+            <to-view-id>/alerte/definirSeuil.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>definirServices</from-outcome>
+            <to-view-id>/alerte/definirServices.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accueil</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>pdfConfirm</from-outcome>
+            <to-view-id>/pdfConfirm.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>modifierPlatform1</from-outcome>
+            <to-view-id>/platform/modifier.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>tcpEtudp</from-outcome>
+            <to-view-id>/equipement/tcpEtudp.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>etatOid</from-outcome>
+            <to-view-id>/equipement/etatOid.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>diagramme</from-outcome>
+            <to-view-id>/equipement/lineChart.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>chercherHistorique</from-outcome>
+            <to-view-id>/historique/listeequipement.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>chercherEtat</from-outcome>
+            <to-view-id>/equipement/chercherEtat.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>createPlatform</from-outcome>
+            <to-view-id>/platform/create.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>modifierPlatform</from-outcome>
+            <to-view-id>/platform/listeplatform.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>createEquipement</from-outcome>
+            <to-view-id>/equipement/create.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>modifierEquipement</from-outcome>
+            <to-view-id>/equipement/listeequipement.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>supprimerEquipement</from-outcome>
+            <to-view-id>/equipement/supprimer.xhtml</to-view-id>
+            <redirect />			
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>choixAction</from-outcome>
+            <to-view-id>choixAction.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>souscrire</from-outcome>
+            <to-view-id>/user/definirSeuil.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>nouveaurythme</from-outcome>
+            <to-view-id>/musique/nouveauRythme.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>nouvellemusique</from-outcome>
+            <to-view-id>/musique/nouvelleMusique.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>listingartiste</from-outcome>
+            <to-view-id>/musique/artistes.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>questionspeciale</from-outcome>
+            <to-view-id>/jeu/enregistrerUtilisateur.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+		
+        <navigation-case>
+            <from-outcome>statistique</from-outcome>
+            <to-view-id>/jeu/statistiques.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>jeuencours</from-outcome>
+            <to-view-id>/jeu/enregistrerRythme.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>listingjeu</from-outcome>
+            <to-view-id>/jeu/listingjeux.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>nouveaujeu</from-outcome>
+            <to-view-id>/jeu/nouveauJeu.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+				
+        <navigation-case>
+            <from-outcome>navAccount</from-outcome>
+            <to-view-id>/user/compte.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>messages</from-outcome>
+            <to-view-id>/jeu/messages.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>gagnants</from-outcome>
+            <to-view-id>/jeu/gagnants.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>joueurs</from-outcome>
+            <to-view-id>/jeu/joueurs.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>lots</from-outcome>
+            <to-view-id>/jeu/lots.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>listesms</from-outcome><!-- La liste que l'on renvoie dans le NavBean -->
+            <to-view-id>/sms/listesms.xhtml</to-view-id> <!-- Le chemin d'accès au fichier -->
+            <redirect />
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>listepreinscription</from-outcome>
+            <to-view-id>/sco/listepreinscription.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>	
+		
+        <navigation-case>
+            <from-outcome>attribuerMatricule</from-outcome>
+            <to-view-id>/sco/attribuerMatricule.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>datatableRowSelectionIns</from-outcome>
+            <to-view-id>/sco/datatableRowSelectionIns.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>datatableRowSelection</from-outcome>
+            <to-view-id>/sco/datatableRowSelection.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>uploadfile</from-outcome>
+            <to-view-id>/user/uploadfile.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>savedossier</from-outcome>
+            <to-view-id>/user/savedossier.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>datatableRowSelectionInstant</from-outcome>
+            <to-view-id>/coo/datatableRowSelectionInstant.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>etatdossier</from-outcome>
+            <to-view-id>/user/etatdossier.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>remplirficheins</from-outcome>
+            <to-view-id>/user/remplirficheins.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>remplirfichepre</from-outcome>
+            <to-view-id>/user/remplirfichepre.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+		
+        <navigation-case>
+            <from-outcome>payerscolarite</from-outcome>
+            <to-view-id>/user/payerscolarite.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>choixAction2</from-outcome>
+            <to-view-id>choixAction.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>	
+
+</faces-config>

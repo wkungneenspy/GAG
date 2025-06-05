@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="signMissionOrder">
+    <contexte>
+        <item name="MO" id="item1"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="signMissionOrder" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="MO" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+	  <item name="MOSigned" id="item3"/>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item3" name="MOSigned" id="item4"/>
+    </provide>
+</service>

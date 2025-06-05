@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="selectCompanies">
+    <contexte>
+        <item name="codeAppel" id="item1">appelOffresValue</item>
+        <item name="appelOffres" id="item2">appelOffressssss</item>
+    </contexte>
+    <use type="simple" serviceName="selectCompanies" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="codeAppel" id="item3">appelOffresValue</item>
+            <item refItem="item2" name="appelOffres" id="item4">appelOffressssss</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeEntreprise" id="item5">codeEntreprise</item>
+            <item name="listeentreprises" id="item6">listeEntreprises</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item5" name="codeEntreprise" id="item7">codeEntreprise</item>
+        <item refItem="item6" name="listeentreprises" id="item8">listeEntreprises</item>
+    </provide>
+</service>

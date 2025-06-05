@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="reservationVoyage">
+    <contexte>
+        <item name="dateDepart" id="item1"/>
+        <item name="dateRetour" id="item2"/>
+	<item name="paysDepart" id="item3"/>
+	<item name="paysArrive" id="item4"/>
+    </contexte>
+    <use type="composite"  serviceName="reservationVol" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="dateDepart" id="item5"/>
+	    <item refItem="item2" name="dateRetour" id="item6"/>
+	    <item refItem="item3" name="paysDepart" id="item7"/>
+	    <item refItem="item4" name="paysArrive" id="item8"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="compagnieArerienne" id="item9"></item>
+	    <item name="NumeroVol" id="item10"></item>
+	    <item name="NumeroSiege" id="item11"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="reservationHotel" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="dateDepart" id="item12"/>
+	    <item refItem="item2" name="dateRetour" id="item13"/>
+	    <item refItem="item4" name="paysArrive" id="item14"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="nomHotel" id="item15"></item>
+	    <item name="numeroChambre" id="item16"></item>
+        </outputParameter>
+    </use>
+    <use type="composite"  serviceName="reservationTaxi" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="dateDepart" id="item17"/>
+	    <item refItem="item2" name="dateRetour" id="item18"/>
+	    <item refItem="item4" name="paysArrive" id="item19"/>
+        </inputParameter>
+        <outputParameter>
+	    <item name="numeroTaxi" id="item20"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item9" id="item21" name="compagnieArerienne"></item>
+	<item refItem="item10" id="item22" name="numeroVol"></item>
+	<item refItem="item11" id="item23" name="numeroSiege"></item>
+	<item refItem="item15" id="item24" name="nomHotel"></item>
+	<item refItem="item16" id="item25" name="numeroChambre"></item>
+	<item refItem="item20" id="item26" name="numeroTaxi"></item>
+    </provide>
+</service>

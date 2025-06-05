@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="checkDemand">
+    <contexte>
+        <item name="infoMission" id="item1">infoMissiondddd</item>
+    </contexte>
+    <service type="simple" name="rejectRequest">
+        <contexte>
+            <item name="infoMission" id="item1">infoMissiondddd</item>
+        </contexte>
+        <service type="simple" name="rejectRequest">
+            <contexte>
+                <item name="infoMission" id="item1">infoMissiondddd</item>
+            </contexte>
+            <provide>
+                <item refItem="item3" name="MOSigned" id="item4">MOSigned</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item3" name="MOSigned" id="item4">MOSigned</item>
+        </provide>
+    </service>
+    <provide>
+        <item refItem="item3" name="MOSigned" id="item4">MOSigned</item>
+        <item refItem="item3" name="infoReserve" id="item5">MOSigned</item>
+    </provide>
+</service>

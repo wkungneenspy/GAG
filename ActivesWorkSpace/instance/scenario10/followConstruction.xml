@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="followConstruction">
+    <contexte>
+        <item name="codeEntreprise" id="item1">codeEntreprise</item>
+        <item name="codeFinancementE" id="item2">codeFinancementE</item>
+        <item name="listeentreprises" id="item3">listeEntreprises</item>
+        <item name="detailFinancement" id="item4">detailFinancement</item>
+    </contexte>
+    <use type="simple" serviceName="followConstruction" order="true" manually="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="codeEntreprise" id="item5">codeEntreprise</item>
+            <item refItem="item2" name="codeFinancementE" id="item6">codeFinancementE</item>
+            <item refItem="item3" name="listeentreprises" id="item7">listeEntreprises</item>
+            <item refItem="item4" name="detailFinancement" id="item8">detailFinancement</item>
+        </inputParameter>
+        <outputParameter>
+            <item name="codeProjet" id="item9">codeProjet</item>
+            <item name="rapportEtape" id="item10">rapportEtape</item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item9" name="codeProjet" id="item11">codeProjet</item>
+        <item refItem="item10" name="rapportEtape" id="item12">rapportEtape</item>
+    </provide>
+</service>

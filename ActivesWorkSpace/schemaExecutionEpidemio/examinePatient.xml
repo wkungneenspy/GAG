@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="examinePatient">
+    <contexte>
+        <item name="patient" id="item1"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="examinePatient" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="patient" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="symps" id="item3"></item>
+	    <item name="antecedents" id="item4"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item3" id="item5" name="symps"></item>
+	<item refItem="item4" id="item6" name="antecedents"></item>
+    </provide>
+</service>

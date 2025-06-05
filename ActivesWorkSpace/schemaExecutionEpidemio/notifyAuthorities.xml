@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="notifyAuthorities">
+    <contexte>
+        <item name="alarmInfo" id="item1"/>
+	<item name="patient" id="item2"/>
+	<item name="symps" id="item3"/>
+	<item name="antecedents" id="item4"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="notifyAuthorities" order="true" location="localhost">
+        <inputParameter>
+		<item refItem="item1" name="alarmInfo" id="item5"/>
+		<item refItem="item2" name="patient" id="item6"/>
+		<item refItem="item3" name="symps" id="item7"/>
+		<item refItem="item4" name="antecedents" id="item8"/>
+        </inputParameter>
+        <outputParameter>
+	    <item id="item9" name="nothing">Nothing</item>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item9" id="item10" name="nothing"></item>
+    </provide>
+</service>

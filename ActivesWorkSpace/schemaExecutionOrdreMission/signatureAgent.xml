@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="signatureAgent">
+    <contexte>
+        <item name="OMScia" id="item1"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="signatureAgent" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item1" name="OMScia" id="item2"/>
+        </inputParameter>
+        <outputParameter>
+	  <item name="OMSciaagent" id="item3"/>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item3" name="OMSciaagent" id="item4"/>
+    </provide>
+</service>

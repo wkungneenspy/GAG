@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="waitResponse">
+    <contexte>
+        <item name="msg" id="item1"/>
+	<item name="sample" id="item2"/>
+	<item name="bio" id="item3"/>
+    </contexte>
+    <use type="composite" serviceName="requestLabAnalysis" order="true" location="localhost">
+        <inputParameter>
+            <item refItem="item2" name="sample" id="item4"/>
+            <item refItem="item3" name="bio" id="item5"/>
+        </inputParameter>
+        <outputParameter>
+            <item name="labResult" id="item6"></item>
+        </outputParameter>
+    </use>
+    <provide>
+        <item refItem="item6" id="item7" name="labResult"></item>
+    </provide>
+</service>

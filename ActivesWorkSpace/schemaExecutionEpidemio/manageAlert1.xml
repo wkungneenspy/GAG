@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="manageAlert">
+    <contexte>
+        <item name="alert" id="item1"/>
+	<item name="patient" id="item2"/>
+	<item name="symps" id="item3"/>
+	<item name="checkRes" id="item4"/>
+	<item name="contactTraceRes" id="item5"/>
+	<item name="otherInfos" id="item6"/>
+    </contexte>
+    <use type="composite" serviceName="defineCounterMeasures" order="true" location="localhost">
+        <inputParameter>
+	    <item refItem="item6" name="otherInfos" id="item7"/>
+	    <item refItem="item1" name="alertInfo" id="item8"/>
+	    <item refItem="item4" name="checkRes" id="item9"/>
+	    <item refItem="item5" name="contactTraceRes" id="item10"/>
+        </inputParameter>
+        <outputParameter>
+		<item name="counterM" id="item11"/>
+        </outputParameter>
+    </use>
+    <use type="composite" serviceName="feedback" order="true" location="localhost">
+        <inputParameter>
+	   <item refItem="item11" name="counterM" id="item12"/>
+	   <item refItem="item6" name="otherInfos" id="item13"/>
+        </inputParameter>
+        <outputParameter>
+		<item id="item14" name="nothing">Nothing</item>
+	</outputParameter>
+    </use>
+    <provide>
+	<item refItem="item14" id="item15" name="nothing"></item>
+    </provide>
+</service>

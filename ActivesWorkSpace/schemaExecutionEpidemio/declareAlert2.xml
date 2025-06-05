@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="simple" name="declareAlert">
+    <contexte>
+        <item name="patient" id="item1"/>
+	<item name="symps" id="item2"/>
+	<item name="antecedents" id="item3"/>
+	<item name="checkRes" id="item4"/>
+	<item name="labResult" id="item5"/>
+	<item name="alertInfos" id="item6"/>
+    </contexte>
+    <use type="simple" manually="true" serviceName="declareAlert" order="true" location="localhost">
+        <inputParameter>
+	  <item refItem="item6" name="alertInfos" id="item7"/>
+	  <item refItem="item1" name="patient" id="item8"/>
+	  <item refItem="item2" name="symps" id="item9"/>
+	  <item refItem="item3" name="antecedents" id="item10"/>
+        </inputParameter>
+        <outputParameter>
+	  <item name="alert" id="item11"/>
+        </outputParameter>
+    </use>
+    <provide>
+	<item refItem="item11" name="alert" id="item12"/>
+    </provide>
+</service>

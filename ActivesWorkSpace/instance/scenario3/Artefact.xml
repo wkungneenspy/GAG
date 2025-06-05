@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service type="composite" name="preparingLogistic">
+    <contexte>
+        <item name="reserve" id="item1">reserve</item>
+    </contexte>
+    <service type="simple" name="trainBooking">
+        <contexte>
+            <item name="reserve" id="item1">reserve</item>
+        </contexte>
+        <service type="simple" name="trainBooking">
+            <contexte>
+                <item name="reserve" id="item1">reserve</item>
+            </contexte>
+            <provide>
+                <item refItem="item3" name="infoReserve" id="item4">IR1</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item3" name="infoReserve" id="item4">IR1</item>
+        </provide>
+    </service>
+    <service type="simple" name="hotelReservation">
+        <contexte>
+            <item name="reserve" id="item1">reserve</item>
+        </contexte>
+        <service type="simple" name="hotelReservation">
+            <contexte>
+                <item name="reserve" id="item1">reserve</item>
+            </contexte>
+            <provide>
+                <item refItem="item3" name="infoReserve" id="item4">IR1</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item3" name="infoReserve" id="item4">IR1</item>
+        </provide>
+    </service>
+    <service type="simple" name="carRenting">
+        <contexte>
+            <item name="reserve" id="item1">reserve</item>
+        </contexte>
+        <service type="simple" name="carRenting">
+            <contexte>
+                <item name="reserve" id="item1">reserve</item>
+            </contexte>
+            <provide>
+                <item refItem="item3" name="infoReserve" id="item4">IR1</item>
+            </provide>
+        </service>
+        <provide>
+            <item refItem="item3" name="infoReserve" id="item4">IR1</item>
+        </provide>
+    </service>
+    <provide>
+        <item refItem="item3" name="infoReserve" id="item8">IR1</item>
+    </provide>
+</service>
